@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.quiz1://para madetermine kung anong quiz yung pinindot
+            case R.id.quiz1://para madetermine kung anong quiz yung cinlick
                 openQuizAct(view,"programming");
 
 
