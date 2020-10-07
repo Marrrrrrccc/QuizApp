@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/bg2"
+    >
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="380dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:scrollbarSize="2dp"
+        android:scrollbarThumbVertical="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/quiz1"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Programming"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Operating System"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 3"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 4"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 5"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 6"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 7"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 8"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 9"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 10"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="340dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonbg"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="40dp"
+                android:text="Quiz 11"
+                android:textAlignment="viewStart"
+                android:textSize="22sp"
+                android:typeface="normal" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button38"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="30dp"
+        android:text="="
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toStartOf="@+id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button39"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="30dp"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/searchView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/searchbg"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toStartOf="@+id/button39"
+        app:layout_constraintStart_toEndOf="@+id/button38"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
