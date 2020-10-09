@@ -28,6 +28,7 @@ import java.io.IOException;
 public class insideQuiz extends AppCompatActivity {
     private questionLibrary mQuestionLibrary = new questionLibrary();
     private cisco cisco = new cisco();
+    private Aos Aos = new Aos();
     private Object questions;
     private static String FILE_NAME;
     private TextView mScoreView;
@@ -233,6 +234,10 @@ public class insideQuiz extends AppCompatActivity {
                 operatingSystemQuestion();
                 FILE_NAME = "operating system.txt";
                 break;
+            case "Aos":
+                AOSQuestion();
+                FILE_NAME = "Aos.txt";
+                break;
         }
     }
     public void operatingSystemQuestion() {
@@ -255,6 +260,18 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(mQuestionLibrary.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(mQuestionLibrary.getChoice4(mQuestionNumber));
         mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void AOSQuestion() {//
+        mExamTitle.setText(Aos.title);//displays the title
+        mQuestionView.setText(Aos.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(Aos.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(Aos.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(Aos.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(Aos.getChoice4(mQuestionNumber));
+        mAnswer = Aos.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 

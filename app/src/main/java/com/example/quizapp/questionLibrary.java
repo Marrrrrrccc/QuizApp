@@ -2,7 +2,7 @@ package com.example.quizapp;
 
 public class questionLibrary {
     public String mQuestions[]={
-            "What is the most famous programming language??",
+            "What is the most famous programming language?",
             "Who invented microsoft?",
             "Who invented world wide web (www)?",
             "Which is used for backend programming?",
