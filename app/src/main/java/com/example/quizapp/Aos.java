@@ -15,7 +15,7 @@ public class Aos {
             "Where was UNIX developed? ",
             "Location for files in UNIX"
     };
-    private String mChoices [][]= {
+    private String mChoices [][]= {//
             {"1975", "1996", "1984", "1969"},
             {"Windows", "Xenix", "Linux", "Ultrix"},
             {"ls", "cd", "man", "cls"},
