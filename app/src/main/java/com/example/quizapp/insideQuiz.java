@@ -27,6 +27,7 @@ import java.io.IOException;
 
 public class insideQuiz extends AppCompatActivity {
     private questionLibrary mQuestionLibrary = new questionLibrary();
+    private frontEnd mFrontEnd = new frontEnd();
     private cisco cisco = new cisco();
     private Aos Aos = new Aos();
     private Object questions;
@@ -238,6 +239,10 @@ public class insideQuiz extends AppCompatActivity {
                 AOSQuestion();
                 FILE_NAME = "Aos.txt";
                 break;
+            case "FRONT-END":
+                frontENDQuestion();
+                FILE_NAME = "front-end.txt";
+                break;
         }
     }
     public void operatingSystemQuestion() {
@@ -272,6 +277,18 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(Aos.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(Aos.getChoice4(mQuestionNumber));
         mAnswer = Aos.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void frontENDQuestion() {//
+        mExamTitle.setText(mFrontEnd.title);//displays the title
+        mQuestionView.setText(mFrontEnd.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(mFrontEnd.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(mFrontEnd.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mFrontEnd.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mFrontEnd.getChoice4(mQuestionNumber));
+        mAnswer = mFrontEnd.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 

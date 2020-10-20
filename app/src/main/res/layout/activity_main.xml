@@ -76,7 +76,7 @@
                 android:background="@drawable/buttonbg"
                 android:fontFamily="@font/roboto"
                 android:paddingLeft="40dp"
-                android:text="Quiz 4"
+                android:text="Front-End"
                 android:textAlignment="viewStart"
                 android:textSize="22sp"
                 android:typeface="normal" />
