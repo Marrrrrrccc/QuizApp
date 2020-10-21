@@ -27,10 +27,11 @@ import java.io.IOException;
 
 public class insideQuiz extends AppCompatActivity {
     private questionLibrary mQuestionLibrary = new questionLibrary();
+    private dataAlgo mDataAlgo = new dataAlgo();
     private frontEnd mFrontEnd = new frontEnd();
     private cisco cisco = new cisco();
     private Aos Aos = new Aos();
-    private Object questions;
+
     private static String FILE_NAME;
     private TextView mScoreView;
     private TextView mQuestionView;
@@ -243,6 +244,11 @@ public class insideQuiz extends AppCompatActivity {
                 frontENDQuestion();
                 FILE_NAME = "front-end.txt";
                 break;
+            case "DATA ALGO":
+                dataalgoQuestion();
+                FILE_NAME = "DATA-ALGO.txt";
+                break;
+
         }
     }
     public void operatingSystemQuestion() {
@@ -289,6 +295,18 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(mFrontEnd.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(mFrontEnd.getChoice4(mQuestionNumber));
         mAnswer = mFrontEnd.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void dataalgoQuestion() {//
+        mExamTitle.setText(mDataAlgo.title);//displays the title
+        mQuestionView.setText(mDataAlgo.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(mDataAlgo.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(mDataAlgo.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mDataAlgo.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mDataAlgo.getChoice4(mQuestionNumber));
+        mAnswer = mDataAlgo.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 
