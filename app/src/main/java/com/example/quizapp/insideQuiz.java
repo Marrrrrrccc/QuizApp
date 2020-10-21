@@ -35,6 +35,8 @@ public class insideQuiz extends AppCompatActivity {
     private discreteMath DM = new discreteMath();
     private ethics mEthics = new ethics();
     private vB mVB = new vB();
+    private hCI mHCI = new hCI();
+    private and mAndroid = new and();
     private static String FILE_NAME;
     private TextView mScoreView;
     private TextView mQuestionView;
@@ -267,6 +269,14 @@ public class insideQuiz extends AppCompatActivity {
                 VBQuestion();
                 FILE_NAME= "Visual-basic.txt";
                 break;
+            case "HCI":
+                HCIQuestion();
+                FILE_NAME= "HCI.txt";
+                break;
+            case "android":
+                androidQuestion();
+                FILE_NAME= "android.txt";
+                break;
 
 
 
@@ -376,6 +386,30 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(mVB.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(mVB.getChoice4(mQuestionNumber));
         mAnswer = mVB.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void HCIQuestion() {//
+        mExamTitle.setText(mHCI.title);//displays the title
+        mQuestionView.setText(mHCI.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(mHCI.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(mHCI.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mHCI.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mHCI.getChoice4(mQuestionNumber));
+        mAnswer = mHCI.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void androidQuestion() {//
+        mExamTitle.setText(mAndroid.title);//displays the title
+        mQuestionView.setText(mAndroid.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(mAndroid.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(mAndroid.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mAndroid.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mAndroid.getChoice4(mQuestionNumber));
+        mAnswer = mAndroid.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 

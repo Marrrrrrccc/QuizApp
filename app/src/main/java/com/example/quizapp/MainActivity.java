@@ -87,6 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button9:
                 openQuizAct(view,"VB");
                 break;
+            case R.id.button10:
+                openQuizAct(view,"HCI");
+                break;
+            case R.id.button11:
+                openQuizAct(view,"android");
+                break;
 
 
         }
