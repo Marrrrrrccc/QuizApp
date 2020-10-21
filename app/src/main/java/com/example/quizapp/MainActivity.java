@@ -76,7 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button5:
                 openQuizAct(view,"DATA ALGO");
-
+                break;
+            case R.id.button6:
+                openQuizAct(view,"OS");
+                break;
 
 
         }

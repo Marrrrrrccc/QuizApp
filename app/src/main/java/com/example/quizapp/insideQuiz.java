@@ -31,6 +31,7 @@ public class insideQuiz extends AppCompatActivity {
     private frontEnd mFrontEnd = new frontEnd();
     private cisco cisco = new cisco();
     private Aos Aos = new Aos();
+    private oS mOS = new oS();
 
     private static String FILE_NAME;
     private TextView mScoreView;
@@ -248,6 +249,12 @@ public class insideQuiz extends AppCompatActivity {
                 dataalgoQuestion();
                 FILE_NAME = "DATA-ALGO.txt";
                 break;
+            case "OS":
+                OSQuestion();
+                FILE_NAME = "OS.txt";
+                break;
+
+
 
         }
     }
@@ -307,6 +314,18 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(mDataAlgo.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(mDataAlgo.getChoice4(mQuestionNumber));
         mAnswer = mDataAlgo.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void OSQuestion() {//
+        mExamTitle.setText(mOS.title);//displays the title
+        mQuestionView.setText(mOS.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(mOS.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(mOS.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mOS.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mOS.getChoice4(mQuestionNumber));
+        mAnswer = mOS.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 

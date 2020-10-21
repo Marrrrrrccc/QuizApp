@@ -35,7 +35,7 @@ public class oS {
             {"context switching","process control block","light weight",
             "kernel","dual mode","CPU","system bus","hardware",
             "ROM","security","CLI","messages"};
-    public String title = "OS";
+    public String title = "Operating system";
 
     public String getmQuestions(int a) {
         String questions = mQuestions[a];
