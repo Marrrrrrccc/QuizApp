@@ -32,6 +32,7 @@ public class insideQuiz extends AppCompatActivity {
     private cisco cisco = new cisco();
     private Aos Aos = new Aos();
     private oS mOS = new oS();
+    private discreteMath DM = new discreteMath();
 
     private static String FILE_NAME;
     private TextView mScoreView;
@@ -253,6 +254,10 @@ public class insideQuiz extends AppCompatActivity {
                 OSQuestion();
                 FILE_NAME = "OS.txt";
                 break;
+            case "DM":
+                DMQuestion();
+                FILE_NAME= "Discrete.txt";
+                break;
 
 
 
@@ -326,6 +331,18 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(mOS.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(mOS.getChoice4(mQuestionNumber));
         mAnswer = mOS.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void DMQuestion() {//
+        mExamTitle.setText(DM.title);//displays the title
+        mQuestionView.setText(DM.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(DM.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(DM.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(DM.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(DM.getChoice4(mQuestionNumber));
+        mAnswer = DM.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 
