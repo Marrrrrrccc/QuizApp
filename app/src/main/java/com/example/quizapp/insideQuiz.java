@@ -34,6 +34,7 @@ public class insideQuiz extends AppCompatActivity {
     private oS mOS = new oS();
     private discreteMath DM = new discreteMath();
     private ethics mEthics = new ethics();
+    private vB mVB = new vB();
     private static String FILE_NAME;
     private TextView mScoreView;
     private TextView mQuestionView;
@@ -262,6 +263,10 @@ public class insideQuiz extends AppCompatActivity {
                 ethicsQuestion();
                 FILE_NAME= "Ethics.txt";
                 break;
+            case "VB":
+                VBQuestion();
+                FILE_NAME= "Visual-basic.txt";
+                break;
 
 
 
@@ -359,6 +364,18 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(mEthics.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(mEthics.getChoice4(mQuestionNumber));
         mAnswer = mEthics.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void VBQuestion() {//
+        mExamTitle.setText(mVB.title);//displays the title
+        mQuestionView.setText(mVB.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(mVB.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(mVB.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mVB.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mVB.getChoice4(mQuestionNumber));
+        mAnswer = mVB.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 

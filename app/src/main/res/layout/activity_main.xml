@@ -141,7 +141,7 @@
                 android:background="@drawable/buttonbg"
                 android:fontFamily="@font/roboto"
                 android:paddingLeft="40dp"
-                android:text="Quiz 9"
+                android:text="Visual basic"
                 android:textAlignment="viewStart"
                 android:textSize="22sp"
                 android:typeface="normal" />
