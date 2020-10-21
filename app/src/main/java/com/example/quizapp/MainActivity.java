@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 openQuizAct(view,"programming");
                 break;
             case R.id.button2:
-                openQuizAct(view,"operating system");
+                openQuizAct(view,"OS");
                 break;
             case R.id.button3:
                 openQuizAct(view,"Aos");
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 openQuizAct(view,"DATA ALGO");
                 break;
             case R.id.button6:
-                openQuizAct(view,"OS");
+                openQuizAct(view,"comp");
                 break;
             case R.id.button7:
                 openQuizAct(view,"DM");
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button11:
                 openQuizAct(view,"android");
                 break;
+
 
 
         }

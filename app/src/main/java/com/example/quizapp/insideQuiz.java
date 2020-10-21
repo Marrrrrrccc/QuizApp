@@ -29,7 +29,7 @@ public class insideQuiz extends AppCompatActivity {
     private questionLibrary mQuestionLibrary = new questionLibrary();
     private dataAlgo mDataAlgo = new dataAlgo();
     private frontEnd mFrontEnd = new frontEnd();
-    private cisco cisco = new cisco();
+    private compArki mCompArki = new compArki();
     private Aos Aos = new Aos();
     private oS mOS = new oS();
     private discreteMath DM = new discreteMath();
@@ -79,11 +79,6 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice4 = findViewById(R.id.choice4);
         mButtonNext = findViewById(R.id.next);
         quiz = String.valueOf(getIntent().getStringExtra("quiz"));
-//        if(quiz.equalsIgnoreCase("cisco1")){
-//            ciscoQuestion();
-//        }else if(quiz.equalsIgnoreCase("programming")){
-//            programmingQuestion();
-//        }
         updateQuestion();
 
 
@@ -237,10 +232,6 @@ public class insideQuiz extends AppCompatActivity {
                 programmingQuestion();
                 FILE_NAME = "programming.txt";//set the name of the file
                 break;
-            case "operating system":
-                operatingSystemQuestion();
-                FILE_NAME = "operating system.txt";
-                break;
             case "Aos":
                 AOSQuestion();
                 FILE_NAME = "Aos.txt";
@@ -277,21 +268,24 @@ public class insideQuiz extends AppCompatActivity {
                 androidQuestion();
                 FILE_NAME= "android.txt";
                 break;
-
+            case "comp":
+                compQuestion();
+                FILE_NAME= "Computer Architecture.txt";
+                break;
 
 
         }
     }
-    public void operatingSystemQuestion() {
-        mExamTitle.setText(cisco.title);
-        mQuestionView.setText(cisco.getmQuestions(mQuestionNumber));
-        mButtonChoice1.setText(cisco.getChoice1(mQuestionNumber));
-        mButtonChoice2.setText(cisco.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(cisco.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(cisco.getChoice4(mQuestionNumber));
-        mAnswer = cisco.getCorrectAnswer(mQuestionNumber);
+    public void compQuestion() {
+        mExamTitle.setText(mCompArki.title);
+        mQuestionView.setText(mCompArki.getmQuestions(mQuestionNumber));
+        mButtonChoice1.setText(mCompArki.getChoice1(mQuestionNumber));
+        mButtonChoice2.setText(mCompArki.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mCompArki.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mCompArki.getChoice4(mQuestionNumber));
+        mAnswer = mCompArki.getCorrectAnswer(mQuestionNumber);
         qNumber.setText("" + (mQuestionNumber + 1));
-        mQuestionNumber = ((mQuestionNumber + 1) % cisco.mQuestions.length);
+        mQuestionNumber = ((mQuestionNumber + 1) % mCompArki.mQuestions.length);
 
     }
     public void programmingQuestion() {//
