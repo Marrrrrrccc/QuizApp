@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.quiz1:
                 openQuizAct(view,"programming");
-
-
                 break;
             case R.id.button2:
                 openQuizAct(view,"operating system");
@@ -82,6 +80,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button7:
                 openQuizAct(view,"DM");
+                break;
+            case R.id.button8:
+                openQuizAct(view,"ETHICS");
                 break;
 
 

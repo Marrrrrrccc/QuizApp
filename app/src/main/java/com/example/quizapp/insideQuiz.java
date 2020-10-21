@@ -33,7 +33,7 @@ public class insideQuiz extends AppCompatActivity {
     private Aos Aos = new Aos();
     private oS mOS = new oS();
     private discreteMath DM = new discreteMath();
-
+    private ethics mEthics = new ethics();
     private static String FILE_NAME;
     private TextView mScoreView;
     private TextView mQuestionView;
@@ -258,6 +258,10 @@ public class insideQuiz extends AppCompatActivity {
                 DMQuestion();
                 FILE_NAME= "Discrete.txt";
                 break;
+            case "ETHICS":
+                ethicsQuestion();
+                FILE_NAME= "Ethics.txt";
+                break;
 
 
 
@@ -343,6 +347,18 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice3.setText(DM.getChoice3(mQuestionNumber));
         mButtonChoice4.setText(DM.getChoice4(mQuestionNumber));
         mAnswer = DM.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
+        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
+        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
+
+    }
+    public void ethicsQuestion() {//
+        mExamTitle.setText(mEthics.title);//displays the title
+        mQuestionView.setText(mEthics.getmQuestions(mQuestionNumber));//displays the question
+        mButtonChoice1.setText(mEthics.getChoice1(mQuestionNumber));//displays the choices
+        mButtonChoice2.setText(mEthics.getChoice2(mQuestionNumber));
+        mButtonChoice3.setText(mEthics.getChoice3(mQuestionNumber));
+        mButtonChoice4.setText(mEthics.getChoice4(mQuestionNumber));
+        mAnswer = mEthics.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
 
