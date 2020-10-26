@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -100,6 +101,7 @@ public class insideQuiz extends AppCompatActivity {
                 //logic starts here
                 if (mButtonChoice1.getText() == mAnswer) {
                     mButtonChoice1.setBackgroundColor(Color.GREEN);
+                    mScore++;
                 } else {
                     mButtonChoice1.setBackgroundColor(Color.RED);
                 }
@@ -112,6 +114,7 @@ public class insideQuiz extends AppCompatActivity {
                 //logic starts here
                 if (mButtonChoice2.getText() == mAnswer) {
                     mButtonChoice2.setBackgroundColor(Color.GREEN);
+                    mScore++;
                 } else {
                     mButtonChoice2.setBackgroundColor(Color.RED);
                 }
@@ -123,6 +126,7 @@ public class insideQuiz extends AppCompatActivity {
                 //logic starts here
                 if (mButtonChoice3.getText() == mAnswer) {
                     mButtonChoice3.setBackgroundColor(Color.GREEN);
+                    mScore++;
                 } else {
                     mButtonChoice3.setBackgroundColor(Color.RED);
                 }
@@ -134,6 +138,7 @@ public class insideQuiz extends AppCompatActivity {
                 //logic starts here
                 if (mButtonChoice4.getText() == mAnswer) {
                     mButtonChoice4.setBackgroundColor(Color.GREEN);
+                    mScore++;
                 } else {
                     mButtonChoice4.setBackgroundColor(Color.RED);
                 }
@@ -154,6 +159,7 @@ public class insideQuiz extends AppCompatActivity {
                 slideAnimation(mButtonChoice3);
                 slideAnimation(mButtonChoice4);
                 slideAnimation(cardView);
+                Log.d("Test", "score" + mScore);
             }
         });
 
@@ -171,10 +177,10 @@ public class insideQuiz extends AppCompatActivity {
         //method the updates the question
 
 
-//        private void updatescore(int point){
-//
-//        mScoreView.setText("" + mScore);
-//    }
+        private void updatescore(int point){
+
+        mScoreView.setText("" + mScore);
+    }
         //method to set the animations
         private void slideAnimation (View v){
             Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_right);
@@ -285,7 +291,12 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice4.setText(mCompArki.getChoice4(mQuestionNumber));
         mAnswer = mCompArki.getCorrectAnswer(mQuestionNumber);
         qNumber.setText("" + (mQuestionNumber + 1));
-        mQuestionNumber = ((mQuestionNumber + 1) % mCompArki.mQuestions.length);
+        if(mQuestionNumber < 12){
+            mQuestionNumber = mQuestionNumber + 1;
+        }else{
+//            toHomescreen(); lagay dito score activity(kung saang activity yung score)
+        }
+//        mQuestionNumber = ((mQuestionNumber + 1) % mCompArki.mQuestions.length);
 
     }
     public void programmingQuestion() {//
