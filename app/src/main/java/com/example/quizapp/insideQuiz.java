@@ -165,6 +165,13 @@ public class insideQuiz extends AppCompatActivity {
         public void toHomescreen () {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
+
+        @Override
+        public void finish() {
+            super.finish();
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
 
         //method the updates the question

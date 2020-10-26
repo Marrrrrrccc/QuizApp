@@ -101,8 +101,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       i = new Intent(MainActivity.this, insideQuiz.class);
       i.putExtra("quiz",v);//para malipat yung data from this to the other activities
         startActivity(i);
-
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
-
-
 }
