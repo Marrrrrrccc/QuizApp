@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -82,12 +83,6 @@ public class insideQuiz extends AppCompatActivity {
         quiz = String.valueOf(getIntent().getStringExtra("quiz"));
         updateQuestion();
 
-
-
-
-
-
-
         //adds button onclick listener
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +90,7 @@ public class insideQuiz extends AppCompatActivity {
                 toHomescreen();
             }
         });
+
         mButtonChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,24 +144,22 @@ public class insideQuiz extends AppCompatActivity {
         mButtonNext.setOnClickListener(new View.OnClickListener(){
             @SuppressLint("ResourceAsColor")
             public void onClick(View view){
-              updateQuestion();
-                save(view,FILE_NAME);
+                //slideUp(mButtonChoice1);//sets the animations
+                //slideUp(mButtonChoice2);
+                //slideUp(mButtonChoice3);
+                //slideUp(mButtonChoice4);
+                swipe(cardView);
+                //slideLeft(cardView);
                 mButtonChoice1.setBackgroundResource(android.R.drawable.btn_default);//brings back the color of each button
                 mButtonChoice2.setBackgroundResource(android.R.drawable.btn_default);
                 mButtonChoice3.setBackgroundResource(android.R.drawable.btn_default);
                 mButtonChoice4.setBackgroundResource(android.R.drawable.btn_default);
-                slideAnimation(mButtonChoice1);//sets the animations
-                slideAnimation(mButtonChoice2);
-                slideAnimation(mButtonChoice3);
-                slideAnimation(mButtonChoice4);
-                slideAnimation(cardView);
+                updateQuestion();
+                save(view,FILE_NAME);
                 Log.d("Test", "score" + mScore);
             }
         });
-
-
     }
-
 
         //method for going back to the homescreen
         public void toHomescreen () {
@@ -173,21 +167,29 @@ public class insideQuiz extends AppCompatActivity {
             startActivity(intent);
         }
 
-
         //method the updates the question
-
-
         private void updatescore(int point){
-
         mScoreView.setText("" + mScore);
     }
         //method to set the animations
-        private void slideAnimation (View v){
+
+        private void swipe (View v){
+            Animation swipe = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.swipe);
+            v.setAnimation(swipe);
+        }
+
+       /* private void slideRight (View v){
             Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_right);
             v.setAnimation(slide);
 
-
         }
+
+        private void slideLeft (View v){
+            Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_left);
+            v.setAnimation(slide);
+
+        } */
+
         //method that save the question to a text file
 
     public void save(View v,String name) {
@@ -291,12 +293,7 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice4.setText(mCompArki.getChoice4(mQuestionNumber));
         mAnswer = mCompArki.getCorrectAnswer(mQuestionNumber);
         qNumber.setText("" + (mQuestionNumber + 1));
-        if(mQuestionNumber < 12){
-            mQuestionNumber = mQuestionNumber + 1;
-        }else{
-//            toHomescreen(); lagay dito score activity(kung saang activity yung score)
-        }
-//        mQuestionNumber = ((mQuestionNumber + 1) % mCompArki.mQuestions.length);
+        mQuestionNumber = ((mQuestionNumber + 1) % mCompArki.mQuestions.length);
 
     }
     public void programmingQuestion() {//
@@ -309,8 +306,8 @@ public class insideQuiz extends AppCompatActivity {
         mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
         qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
         mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
     }
+
     public void AOSQuestion() {//
         mExamTitle.setText(Aos.title);//displays the title
         mQuestionView.setText(Aos.getmQuestions(mQuestionNumber));//displays the question
