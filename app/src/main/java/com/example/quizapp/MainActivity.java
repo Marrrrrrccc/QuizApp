@@ -93,9 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button11:
                 openQuizAct(view,"android");
                 break;
-
-
-
         }
     }
 
@@ -104,8 +101,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       i = new Intent(MainActivity.this, insideQuiz.class);
       i.putExtra("quiz",v);//para malipat yung data from this to the other activities
         startActivity(i);
-
-
 
     }
 
