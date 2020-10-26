@@ -9,15 +9,16 @@
 
     <Button
         android:id="@+id/next"
-        android:layout_width="50dp"
-        android:layout_height="49dp"
-        android:text="Next"
+        android:layout_width="17dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="175dp"
+        android:background="@drawable/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.905"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toEndOf="@+id/question"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/question"
@@ -62,11 +63,12 @@
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="50dp"
-        android:layout_height="49dp"
+        android:layout_width="17dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="325dp"
         android:layout_marginBottom="620dp"
-        android:text="back"
+        android:background="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +79,7 @@
         android:id="@+id/ExamTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="620dp"
         android:fontFamily="@font/roboto_bold"
@@ -92,13 +95,14 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="320dp"
-        android:layout_height="243dp"
-        android:layout_marginTop="300dp"
+        android:layout_width="340dp"
+        android:layout_height="283dp"
+        android:layout_marginTop="245dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,8 +112,8 @@
             <Button
                 android:id="@+id/choice1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="0dp"
                 android:background="?attr/colorButtonNormal"
                 android:fontFamily="@font/roboto_light"
                 android:text="Choice 1"
@@ -118,8 +122,8 @@
             <Button
                 android:id="@+id/choice2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="0dp"
                 android:background="?attr/colorButtonNormal"
                 android:fontFamily="@font/roboto_light"
                 android:text="Choice 2"
@@ -128,8 +132,8 @@
             <Button
                 android:id="@+id/choice3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="0dp"
                 android:background="?attr/colorButtonNormal"
                 android:fontFamily="@font/roboto_light"
                 android:text="Choice 3"
@@ -138,8 +142,8 @@
             <Button
                 android:id="@+id/choice4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="0dp"
                 android:background="?attr/colorButtonNormal"
                 android:fontFamily="@font/roboto_light"
                 android:text="Choice 4"
@@ -153,7 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="625dp"
+        android:layout_marginTop="650dp"
         android:layout_marginEnd="5dp"
         android:fontFamily="@font/roboto_light"
         android:text="of"
@@ -167,7 +171,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="625dp"
+        android:layout_marginTop="650dp"
         android:layout_marginEnd="175dp"
         android:fontFamily="@font/roboto_light"
         android:text="12"
@@ -183,7 +187,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="625dp"
+        android:layout_marginTop="650dp"
         android:fontFamily="@font/roboto_light"
         android:text="12"
         android:textAlignment="textEnd"

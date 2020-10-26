@@ -50,11 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         openQuiz9.setOnClickListener(this);
         openQuiz10.setOnClickListener(this);
         openQuiz11.setOnClickListener(this);
-
-
-
     }
-
 
     //onclick method for the buttons
     @Override

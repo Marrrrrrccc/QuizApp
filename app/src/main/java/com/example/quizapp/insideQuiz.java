@@ -165,11 +165,11 @@ public class insideQuiz extends AppCompatActivity {
         public void toHomescreen () {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right); //animation for transitioning back to the homescreen
         }
 
         @Override
-        public void finish() {
+        public void finish() { //same animation transition going back to homescreen using back button
             super.finish();
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
