@@ -21,24 +21,17 @@ import android.widget.Toast;
 import android.view.View.OnClickListener;
 
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 
 public class insideQuiz extends AppCompatActivity {
-    private questionLibrary mQuestionLibrary = new questionLibrary();
-    private dataAlgo mDataAlgo = new dataAlgo();
-    private frontEnd mFrontEnd = new frontEnd();
-    private compArki mCompArki = new compArki();
-    private Aos Aos = new Aos();
-    private oS mOS = new oS();
-    private discreteMath DM = new discreteMath();
-    private ethics mEthics = new ethics();
-    private vB mVB = new vB();
-    private hCI mHCI = new hCI();
-    private and mAndroid = new and();
     private static String FILE_NAME;
     private TextView mScoreView;
     private TextView mQuestionView;
@@ -95,7 +88,7 @@ public class insideQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //logic starts here
-                if (mButtonChoice1.getText() == mAnswer) {
+                if (mButtonChoice1.getText().equals(mAnswer)) {
                     mButtonChoice1.setBackgroundColor(Color.GREEN);
                     mScore++;
                 } else {
@@ -108,7 +101,7 @@ public class insideQuiz extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             public void onClick(View view) {
                 //logic starts here
-                if (mButtonChoice2.getText() == mAnswer) {
+                if (mButtonChoice2.getText().equals(mAnswer)) {
                     mButtonChoice2.setBackgroundColor(Color.GREEN);
                     mScore++;
                 } else {
@@ -120,7 +113,7 @@ public class insideQuiz extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             public void onClick(View view) {
                 //logic starts here
-                if (mButtonChoice3.getText() == mAnswer) {
+                if (mButtonChoice3.getText().equals(mAnswer)) {
                     mButtonChoice3.setBackgroundColor(Color.GREEN);
                     mScore++;
                 } else {
@@ -132,7 +125,7 @@ public class insideQuiz extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             public void onClick(View view) {
                 //logic starts here
-                if (mButtonChoice4.getText() == mAnswer) {
+                if (mButtonChoice4.getText().equals(mAnswer)) {
                     mButtonChoice4.setBackgroundColor(Color.GREEN);
                     mScore++;
                 } else {
@@ -155,7 +148,7 @@ public class insideQuiz extends AppCompatActivity {
                 mButtonChoice3.setBackgroundResource(android.R.drawable.btn_default);
                 mButtonChoice4.setBackgroundResource(android.R.drawable.btn_default);
                 updateQuestion();
-                save(view,FILE_NAME);
+//                save(view,FILE_NAME);
                 Log.d("Test", "score" + mScore);
             }
         });
@@ -201,11 +194,11 @@ public class insideQuiz extends AppCompatActivity {
 
     public void save(View v,String name) {
         String question = "Question:" + mQuestionView.getText().toString();
-        String choice1 = "Choice:" + mButtonChoice1.getText().toString();
-        String choice2 = "Choice:" + mButtonChoice2.getText().toString();
-        String choice3 = "Choice:" + mButtonChoice3.getText().toString();
-        String choice4 = "Choice:" + mButtonChoice4.getText().toString();
-        String correctAnswer = "correct answer: " +mAnswer;
+        String choice1 = "Choice1:" + mButtonChoice1.getText().toString();
+        String choice2 = "Choice2:" + mButtonChoice2.getText().toString();
+        String choice3 = "Choice3:" + mButtonChoice3.getText().toString();
+        String choice4 = "Choice4:" + mButtonChoice4.getText().toString();
+        String correctAnswer = "correct answer:" +mAnswer;
         counter++;
         File file = new File(getFilesDir() + "/" + name); //path where it is save
         String lineSeparator = System.getProperty("line.separator"); //new line
@@ -244,185 +237,131 @@ public class insideQuiz extends AppCompatActivity {
     public void updateQuestion(){
         switch (quiz){
             case "programming"://pagka "programming" "quiz" yung pinindot
-                programmingQuestion();
                 FILE_NAME = "programming.txt";//set the name of the file
+                updateQuestions(FILE_NAME);
                 break;
             case "Aos":
-                AOSQuestion();
                 FILE_NAME = "Aos.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "FRONT-END":
-                frontENDQuestion();
                 FILE_NAME = "front-end.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "DATA ALGO":
-                dataalgoQuestion();
-                FILE_NAME = "DATA-ALGO.txt";
+                FILE_NAME = "Data-Algo.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "OS":
-                OSQuestion();
-                FILE_NAME = "OS.txt";
+                FILE_NAME = "operating system.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "DM":
-                DMQuestion();
                 FILE_NAME= "Discrete.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "ETHICS":
-                ethicsQuestion();
                 FILE_NAME= "Ethics.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "VB":
-                VBQuestion();
                 FILE_NAME= "Visual-basic.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "HCI":
-                HCIQuestion();
                 FILE_NAME= "HCI.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "android":
-                androidQuestion();
                 FILE_NAME= "android.txt";
+                updateQuestions(FILE_NAME);
                 break;
             case "comp":
-                compQuestion();
                 FILE_NAME= "Computer Architecture.txt";
+              updateQuestions(FILE_NAME);
+
                 break;
 
 
         }
     }
-    public void compQuestion() {
-        mExamTitle.setText(mCompArki.title);
-        mQuestionView.setText(mCompArki.getmQuestions(mQuestionNumber));
-        mButtonChoice1.setText(mCompArki.getChoice1(mQuestionNumber));
-        mButtonChoice2.setText(mCompArki.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mCompArki.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mCompArki.getChoice4(mQuestionNumber));
-        mAnswer = mCompArki.getCorrectAnswer(mQuestionNumber);
-        qNumber.setText("" + (mQuestionNumber + 1));
-        mQuestionNumber = ((mQuestionNumber + 1) % mCompArki.mQuestions.length);
+    public void updateQuestions(String filename) {
+
+        try {
+            FileInputStream fileInputStream = openFileInput(filename);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuffer q = new StringBuffer();
+            StringBuffer c = new StringBuffer();
+
+            StringBuilder sb = new StringBuilder();
+            ArrayList<String> questions = new ArrayList<>();
+            ArrayList<String> choice1 = new ArrayList<>();
+            ArrayList<String> choice2 = new ArrayList<>();
+            ArrayList<String> choice3 = new ArrayList<>();
+            ArrayList<String> choice4 = new ArrayList<>();
+            ArrayList<String> correct = new ArrayList<>();
+            ArrayList<String> title = new ArrayList<>();
+            String line = bufferedReader.readLine();
+            while (line!= null) {
+                if (line.contains("Title:")){
+                    line = line.replace("Title:","");
+                    title.add(line);
+                }
+                if(line.contains("Question:")){
+                    line = line.replace("Question:","");
+                    questions.add(line);
+
+                }
+                if(line.contains("Choice1:")){
+                    line = line.replace("Choice1:", "");
+                    choice1.add(line);
+
+                }
+                if(line.contains("Choice2:")){
+                    line = line.replace("Choice2:", "");
+                    choice2.add(line);
+
+                }
+                if(line.contains("Choice3:")){
+                    line = line.replace("Choice3:", "");
+                    choice3.add(line);
+
+                }
+                if(line.contains("Choice4:")){
+                    line = line.replace("Choice4:", "");
+                    choice4.add(line);
+
+                }if(line.contains("correct answer:")){
+                    line = line.replace("correct answer:", "");
+                    correct.add(line);
+
+                }
+                line = bufferedReader.readLine();
+
+            }
+            bufferedReader.close();
+
+            q.append(questions.get(mQuestionNumber));
+            mQuestionView.setText(q);
+            mButtonChoice1.setText(choice1.get(mQuestionNumber));
+            mButtonChoice2.setText(choice2.get(mQuestionNumber));
+            mButtonChoice3.setText(choice3.get(mQuestionNumber));
+            mButtonChoice4.setText(choice4.get(mQuestionNumber));
+            mAnswer = correct.get(mQuestionNumber);
+            qNumber.setText("" + (mQuestionNumber + 1));
+            mQuestionNumber = ((mQuestionNumber + 1) % questions.size()) ;
+
+            mExamTitle.setText(title.get(0));
+        } catch(FileNotFoundException ex){
+            ex.printStackTrace();
+        } catch(IOException ex){
+            ex.printStackTrace();
+        }
 
     }
-    public void programmingQuestion() {//
-        mExamTitle.setText(mQuestionLibrary.title);//displays the title
-        mQuestionView.setText(mQuestionLibrary.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mQuestionLibrary.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mQuestionLibrary.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mQuestionLibrary.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mQuestionLibrary.getChoice4(mQuestionNumber));
-        mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-    }
 
-    public void AOSQuestion() {//
-        mExamTitle.setText(Aos.title);//displays the title
-        mQuestionView.setText(Aos.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(Aos.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(Aos.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(Aos.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(Aos.getChoice4(mQuestionNumber));
-        mAnswer = Aos.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void frontENDQuestion() {//
-        mExamTitle.setText(mFrontEnd.title);//displays the title
-        mQuestionView.setText(mFrontEnd.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mFrontEnd.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mFrontEnd.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mFrontEnd.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mFrontEnd.getChoice4(mQuestionNumber));
-        mAnswer = mFrontEnd.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void dataalgoQuestion() {//
-        mExamTitle.setText(mDataAlgo.title);//displays the title
-        mQuestionView.setText(mDataAlgo.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mDataAlgo.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mDataAlgo.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mDataAlgo.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mDataAlgo.getChoice4(mQuestionNumber));
-        mAnswer = mDataAlgo.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void OSQuestion() {//
-        mExamTitle.setText(mOS.title);//displays the title
-        mQuestionView.setText(mOS.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mOS.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mOS.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mOS.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mOS.getChoice4(mQuestionNumber));
-        mAnswer = mOS.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void DMQuestion() {//
-        mExamTitle.setText(DM.title);//displays the title
-        mQuestionView.setText(DM.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(DM.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(DM.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(DM.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(DM.getChoice4(mQuestionNumber));
-        mAnswer = DM.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void ethicsQuestion() {//
-        mExamTitle.setText(mEthics.title);//displays the title
-        mQuestionView.setText(mEthics.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mEthics.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mEthics.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mEthics.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mEthics.getChoice4(mQuestionNumber));
-        mAnswer = mEthics.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void VBQuestion() {//
-        mExamTitle.setText(mVB.title);//displays the title
-        mQuestionView.setText(mVB.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mVB.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mVB.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mVB.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mVB.getChoice4(mQuestionNumber));
-        mAnswer = mVB.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void HCIQuestion() {//
-        mExamTitle.setText(mHCI.title);//displays the title
-        mQuestionView.setText(mHCI.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mHCI.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mHCI.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mHCI.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mHCI.getChoice4(mQuestionNumber));
-        mAnswer = mHCI.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
-    public void androidQuestion() {//
-        mExamTitle.setText(mAndroid.title);//displays the title
-        mQuestionView.setText(mAndroid.getmQuestions(mQuestionNumber));//displays the question
-        mButtonChoice1.setText(mAndroid.getChoice1(mQuestionNumber));//displays the choices
-        mButtonChoice2.setText(mAndroid.getChoice2(mQuestionNumber));
-        mButtonChoice3.setText(mAndroid.getChoice3(mQuestionNumber));
-        mButtonChoice4.setText(mAndroid.getChoice4(mQuestionNumber));
-        mAnswer = mAndroid.getCorrectAnswer(mQuestionNumber);//para ma determine yung tamang sagot
-        qNumber.setText("" + (mQuestionNumber + 1));//set pangilang question na
-        mQuestionNumber = ((mQuestionNumber + 1) % mQuestionLibrary.mQuestions.length);//para bumalik sa una pag dulo na yung questions
-
-    }
     }
 
 
