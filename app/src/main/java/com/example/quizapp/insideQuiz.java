@@ -45,8 +45,8 @@ public class insideQuiz extends AppCompatActivity {
 
     private String mAnswer;
     private int counter = 0;
-    private int mScore = 0;
-    private int mQuestionNumber = 0;//
+    private int mScore = 0;//
+    private int mQuestionNumber = 0;
     private String toast;
     private Button mButtonNext;
     private CardView cardView;
