@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="questionsFront">
+        <item>CSS stands for ______</item>
+        <item>When was Bootstrap developed?</item>
+        <item>Protocol and platform-independent server side components, written in Java, which extend the standard wed servers</item>
+        <item>_______ are text files containing HTML</item>
+        <item>Makes possible a Web page to react and change in response to the user’s actions</item>
+        <item>___________ is a front end scripting language developed by Netscape for dynamic content</item>
+        <item>Image tag in HTML</item>
+        <item>Which is an invalid heading tag?</item>
+        <item>Table row tag</item>
+        <item>Block element in HTML</item>
+        <item> __________ is a free front end framework for faster and easier web development</item>
+        <item>A _______ provides a general framework for services built on the request-response paradigm</item>
+    </string-array>
+    <string-array name="choicesFront">
+        <item>Cascading Style Server,Computer Style Service,Cascading Style Sheets,Computer Super Sheets</item>
+        <item>2005,2010,2011,2012</item>
+        <item>JavaServlet,Servlet,Java Development Kit,Java EE,</item>
+        <item>Web pages,Code,Web app,html file</item>>
+        <item>DHTML,XML,CSS,JS</item>
+        <item>HTML,CSS,SQL,JavaScript</item>
+        <item>&lt;img src&gt;,&lt;img&gt;,&lt;image&gt;,&lt;imgs&gt;</item>
+        <item>&lt;h1&gt;,&lt;h7&gt;,&lt;h6&gt;,&lt;h3&gt;</item>
+        <item>&lt;tr&gt;,&lt;td&gt;,&lt;row&gt;,&lt;trow&gt;</item>
+        <item>&lt;span&gt;,&lt;br&gt;,&lt;div&gt;,&lt;bl&gt;</item>
+        <item>HTML,CSS,JavaScript,Bootstrap</item>
+        <item>JavaServlet,Servlet,Java Development Kit,Java EE</item>
+
+    </string-array>
+    <string-array name="correctFront">
+        <item>Cascading Style Sheets</item>
+        <item>2011</item>
+        <item>JavaServlet</item>
+        <item>Web pages</item>
+        <item>DHTML</item>
+        <item>JavaScript</item>
+        <item>&lt;img src&gt;</item>
+        <item>&lt;h7&gt;</item>
+        <item>&lt;tr&gt;</item>
+        <item>&lt;div&gt;</item>
+        <item>Bootstrap</item>
+        <item>Servlet</item>
+    </string-array>
+<!---->
+    <!--aos Start-->
+    <string-array name="questionAos">
+        <item>When was UNIX developed?</item>
+        <item>Which is not a variant of UNIX?</item>
+        <item>UNIX Command to change directory?</item>
+        <item>Enhanced Bourne Shell</item>
+        <item>Base programming language of C shell?</item>
+        <item>UNIX shortcut to close a program</item>
+        <item>UNIX command for help?</item>
+        <item>UNIX command to clear screen?</item>
+        <item>DOS command to clear screen?</item>
+        <item>UNIX command to make new directory?</item>
+        <item>Where was UNIX developed? </item>
+        <item>Location for files in UNIX</item>
+    </string-array>
+    <string-array name="choicesAos">
+        <item>1975,1996,1984,1969</item>
+        <item>Windows,Xenix,Linux,Ultrix</item>
+        <item>ls,cd,man,cls</item>
+        <item>C Shell,J shell,Rachel,Korn Shell</item>
+        <item>Java,C++,C,C#</item>
+        <item>ctrl + r,ctrl + d,alt +f4,ctrl + c</item>
+        <item>help,?,man,cls </item>
+        <item>clear,cls,cp,cd</item>
+        <item>clear,cls,cp,cd</item>
+        <item>md,mkdr,mkdir,nd</item>
+        <item>AT&amp;T,Apple,Microsoft,IBM</item>
+        <item>Directory,Folder,File Explorer,Tree</item>
+
+
+    </string-array>
+    <string-array name="correctAos">
+        <item>1969</item>
+        <item>Windows</item>
+        <item>cd</item>
+        <item>Korn Shell</item>
+        <item>C</item>
+        <item>ctrl + c</item>
+        <item>man</item>
+        <item>clear</item>
+        <item>cls</item>
+        <item>mkdir</item>
+        <item>AT&amp;T</item>
+        <item>Directory</item>
+    </string-array>
+<!---->
+    <!--Data Algo Start-->
+    <string-array name="questionDataAlgo">
+        <item>Study of techniques of art and science in programming</item>
+        <item>Second stage of ADT</item>
+        <item>What is a well-defined procedure that processes input values to generate desired output values to solve a problem?</item>
+        <item>What is the execution of a loops body?</item>
+        <item>What is the simplest sorting algorithm?</item>
+        <item>Which ADT uses LIFO?</item>
+        <item>Which ADT uses FIFO?</item>
+        <item>A finite set of nodes and a set of edges or arcs, where each edge is related to a pair of nodes.</item>
+        <item>An ADT for a collection  of key-value pairs</item>
+        <item>What is a unique number that can be mapped into a table?</item>
+        <item>A Tree where every parent has a pair of children</item>
+        <item>What is a collection of disjoint trees?</item>
+    </string-array>
+    <string-array name="choicesDataAlgo">
+        <item>Information Technology,Computer Sciences,Software Engineering,Programming Sciences</item>
+        <item>Implementation,Specification,Representation,Formulation</item>
+        <item>Solution,Formula,Method,Algorithm</item>
+        <item>Recursion,Iteration,Relations,Operation</item>
+        <item>Insertion sort,Selection sort,Bubble sort,Merge Sort</item>
+        <item>Stacks,Queues,Trees,Graphs</item>
+        <item>Stacks,Queues,Trees,Graphs</item>
+        <item>Graphs,Trees,Stacks,Queues</item>
+        <item>Map,Key,Heap,Nodes</item>
+        <item>Hash,Key,Tag,Load</item>
+        <item>Binary tree,Forest,Complete Binary Tree,Graph</item>
+        <item>Graphs,Complete trees,Forest,Parent trees</item>
+
+
+    </string-array>
+    <string-array name="correctDataAlgo">
+        <item>Software Engineering</item>
+        <item>Representation</item>
+        <item>Algorithm</item>
+        <item>Iteration</item>
+        <item>Bubble sort</item>
+        <item>Stacks</item>
+        <item>Queues</item>
+        <item>Graphs</item>
+        <item>Map</item>
+        <item>Key</item>
+        <item>Complete Binary Tree</item>
+        <item>Forest</item>
+    </string-array>
+<!---->
+<!--CompArki Start-->
+    <string-array name="questionCompArki">
+        <item>What are the basic building blocks of digital circuits?</item>
+        <item>Which is not a basic logical operation?</item>
+        <item>When was K-Map developed?</item>
+        <item>K-map that uses 2x4 table</item>
+        <item>Symbol for don`t care condition</item>
+        <item>What are sequential logic circuits that go through a prescribed sequence of states upon application of count pulses?</item>
+        <item>It refers to circuits whose output is strictly dependent on the present value of the inputs.</item>
+        <item>Circuit whose outputs depend not only on the present input value but also the past input value</item>
+        <item>What is the 3rd step in analyzing a sequential circuit?</item>
+        <item>What is the 3rd step in designing a sequential circuit?</item>
+        <item>A special program that translates assembly language into machine language</item>
+        <item>A special program that translates high-level language into machine language</item>
+    </string-array>
+    <string-array name="choicesCompArki">
+        <item>Logic gates,Circuits,Boolean Algebra,Logic Operations</item>
+        <item>And,Or,Not,Nor</item>
+        <item>1970,1987,1959,1953</item>
+        <item>2-variable,3-variable,4-variable,5-variable</item>
+        <item>X,Σ,`,Π</item>
+        <item>Counters,Sequence,Deadlocks,K-map</item>
+        <item>Combinational Logic Circuit,Sequential Circuit,Integrated Circuit,Logic Circuits</item>
+        <item>Combinational Logic Circuit,Sequential Circuit,Integrated Circuit,Logic Circuits</item>
+        <item>Transition table,State Diagram,Excitation Table,Boolean Expression</item>
+        <item>Trasition table,State Diagram,Excitation Table,Boolean Expression</item>
+        <item>IDE,Console,Compiler,Assembler</item>
+        <item>IDE,Console,Compiler,Assembler</item>
+    </string-array>
+    <string-array name="correctCompArki">
+        <item>Logic gates</item>
+        <item>Nor</item>
+        <item>1953</item>
+        <item>3-variable</item>
+        <item>X</item>
+        <item>Counters</item>
+        <item>Combinational Logic Circuit</item>
+        <item>Sequential Circuit</item>
+        <item>Transition table</item>
+        <item>Boolean Expression</item>
+        <item>Assembler</item>
+        <item>Compiler</item>
+    </string-array>
+<!---->
+    <!--Discrete Math Start-->
+    <string-array name="questionDiscrete">
+        <item>__________ are used to form compound propositions</item>
+        <item>Conclusions logically follow from truth of hypotheses.</item>
+        <item>The members of the set</item>
+        <item>The branch of mathematics that is concerned with the integers and their properties</item>
+        <item>Connects a pair of vertices</item>
+        <item>Used to visualize relationships of sets</item>
+        <item>An unordered collection of objects</item>
+        <item>An invalid argument</item>
+        <item>Statement shown to be true; Facts</item>
+        <item>Statement assumed to be true; Postulates, Laws</item>
+        <item>Preliminary theorem; Propositions</item>
+        <item>A sequence of statements that end with conclusions</item>
+    </string-array>
+    <string-array name="choicesDiscrete">
+        <item>Operators,Logic,Condition,Contract</item>
+        <item>Argument,Valid argument,Proof,Theorem</item>
+        <item>Attributes,Properties,Elements,Set List</item>
+        <item>Number Theory,Applied Math,Calculus,Discrete Math</item>
+        <item>Vertex,Edge,Node,Root</item>
+        <item>Graphs,Logic Diagram,Preset,Venn Diagram</item>
+        <item>Diagram,Relation,Sets,Trees</item>
+        <item>Proof,Fallacy,Theorem,Logic</item>
+        <item>Argument,Valid argument,Proof,Theorem</item>
+        <item>Axiom,Corollary,Theorem,Fallacy</item>
+        <item>Lemma,Corollary,Theorem,Fallacy</item>
+        <item>Argument,Valid argument,Proof,Theorem</item>
+    </string-array>
+    <string-array name="correctDiscrete">
+        <item>Operators</item>
+        <item>Valid argument</item>
+        <item>Elements</item>
+        <item>Number Theory</item>
+        <item>Edge</item>
+        <item>Venn Diagram</item>
+        <item>Sets</item>
+        <item>Fallacy</item>
+        <item>Theorem</item>
+        <item>Axiom</item>
+        <item>Lemma</item>
+        <item>Argument</item>
+    </string-array>
+    <!---->
+    <!--Ethics Start-->
+    <string-array name="questionEthics">
+        <item>Main mechanism for protecting creative works in the US.</item>
+        <item>Publishing false statements about another person with the intent of harming their reputation</item>
+        <item>It occurs when an infringement committed by another person would not have happened without your help</item>
+        <item>It involves an infringement that occurs in an area under your supervision, and when you should have been policing and preventing such acts</item>
+        <item>The theory of ____ promotes tolerance.</item>
+        <item>The quality that every person is treated equally and no one is given preferential treatment in the theory.</item>
+        <item>A decision reached by applying the theory should be correct for everyone that has a similar decision to make.</item>
+        <item>The ______ radiation machine killed three people and injured several others in the mid-80s</item>
+        <item>The reasoning that is used to make decisions</item>
+        <item>Purpose is to establish the truth based on Euclidean geometry</item>
+        <item>Ethics of _______ focuses on equality, universality, right, fairness</item>
+        <item>A ____ is a way of defining morality</item>
+    </string-array>
+    <string-array name="choicesEthics">
+        <item>Copyright,Trademark,Patent,Fair use</item>
+        <item>Slander,Hate comment,Libel,Discrimination</item>
+        <item>Copyright Infringement,Vicarious Infringement,Contributory Infringement,Plagiarism</item>
+        <item>Copyright Infringement,Vicarious Infringement,Contributory Infringement,Plagiarism</item>
+        <item>Cutural Relativism,Utilitarianism,Religious Ethics,Deontological ethics</item>
+        <item>Universality,Pure reason,Impartiality,Practical Reason</item>
+        <item>Universality,Pure reason,Impartiality,Practical Reason</item>
+        <item>Therac-25,Macintosh,IEEE-Computer,AECL</item>
+        <item>Universality,Pure reason,Impartiality,Practical Reason</item>
+        <item>Universality,Pure reason,Impartiality,Practical Reason</item>
+        <item>Justice,Caring,Religion,Culture</item>
+        <item>Moral Theory,Ethnicity,Professionalism,Moral</item>
+
+
+    </string-array>
+    <string-array name="correctEthics">
+        <item>Copyright</item>
+        <item>Libel</item>
+        <item>Contributory Infringement</item>
+        <item>Vicarious Infringement</item>
+        <item>Cutural Relativism</item>
+        <item>Impartiality</item>
+        <item>Universality</item>
+        <item>Therac-25</item>
+        <item>Practical Reason</item>
+        <item>Pure reason</item>
+        <item>Justice</item>
+        <item>Moral Theory</item>
+    </string-array>
+    <!---->
+    <!--HCI Start-->
+    <string-array name="questionHci">
+        <item>__________ looks at how people interact with computers.</item>
+        <item>Could be any technology ranging from the general desktop computer to a large scale computer system.</item>
+        <item>When was Apple`s iPad developed?</item>
+        <item>An original model, form or an instance that serves as a basis for other processes.</item>
+        <item>2nd stage of prototyping</item>
+        <item>Stage where you put together the information you have created and gathered during the Empathise stage.</item>
+        <item>________ is a graphic representation of how your story will unfold, shot by shot.</item>
+        <item>___________ provides a medium-fidelity representation and could be considered a high profile visual design draft.</item>
+        <item>Skeleton or simple structure of your website or app.</item>
+        <item>It`s basically just a raw freehand drawing on a piece of paper, that gives you a low-fidelity representation of your app.</item>
+        <item>A high-fidelity representation of your app.</item>
+        <item>One of the world`s first Turing complete computers</item>
+    </string-array>
+    <string-array name="choicesHci">
+        <item>Human-Computer Interaction,Programming,Web Development,Software Engineering</item>
+        <item>Gadget,Appliance,Computer,System</item>
+        <item>2005,2004,2009,2010</item>
+        <item>Inspiration,Prototype,Sketch,Storyboard</item>
+        <item>Define,Ideate,Emphathize,Test</item>
+        <item>Ideate,Prototype,Define,Test</item>
+        <item>Prototype,Sketch,Mockup,Storyboard</item>
+        <item>Mockup,Sketch,Prototype,Wireframe</item>
+        <item>Sketch,Mockup,Prototype,Wireframe</item>
+        <item>Mockup,Prototype,Sketch,Wireframe</item>
+        <item>Mockup,Sketch,Wireframe,Prototype</item>
+        <item>Macintosh,Microsoft,ENIAC,IBM</item>
+
+
+    </string-array>
+    <string-array name="correctHci">
+        <item>Human-Computer Interaction</item>
+        <item>Computer</item>
+        <item>2010</item>
+        <item>Prototype</item>
+        <item>Define</item>
+        <item>Define</item>
+        <item>Storyboard</item>
+        <item>Mockup</item>
+        <item>Wireframe</item>
+        <item>Sketch</item>
+        <item>Prototype</item>
+        <item>ENIAC</item>
+    </string-array>
+    <!---->
+    <!--OS Start-->
+    <string-array name="questionOs">
+        <item>Saving that state of the old process and loading the saved state of the new process is called:</item>
+        <item>Information about a process is maintained in a:</item>
+        <item>A thread is a ____ process.</item>
+        <item>It provides the file system, CPU scheduling, memory management, amd other operating-system functions.</item>
+        <item>It is interrupt driven by hardware which allows OS to protect itself and other system components.</item>
+        <item>It executes information stored in memory.</item>
+        <item>The CPU is connected to memory and I/O through strips of wire called_____.</item>
+        <item>It is use to provides basic computing resources.</item>
+        <item>It contains programs and information essential to the operation of the computer.</item>
+        <item>It is a defense of a system against internal and external attacks.</item>
+        <item>It allows direct command entry.</item>
+        <item>Inter process communication can be done through:</item>
+    </string-array>
+    <string-array name="choicesOs">
+        <item>state,context switching,multi programming,multi-threading</item>
+        <item>translation lookaside bufferblock,stack,process control block,program control block</item>
+        <item>heavy weight,inter thread,multiprocess,light weight</item>
+        <item>BIOS,system programs,kernel,MS-DOS</item>
+        <item>privilege mode,scanning,mode bit,dual mode</item>
+        <item>CPU,system bus,ROM,I/O devices</item>
+        <item>system bus,jumpers,connectors,peripherals</item>
+        <item>hardware,users,application programs,OS</item>
+        <item>HDD,CPU,RAM,ROM</item>
+        <item>authentication,protection,authorization,security</item>
+        <item>input devices,output devices,GUI,CLI</item>
+        <item>system calls,messages,mails,traps</item>
+
+
+    </string-array>
+    <string-array name="correctOs">
+        <item>context switching</item>
+        <item>process control block</item>
+        <item>light weight</item>
+        <item>kernel</item>
+        <item>dual mode</item>
+        <item>CPU</item>
+        <item>system bus</item>
+        <item>hardware</item>
+        <item>ROM</item>
+        <item>security</item>
+        <item>CLI</item>
+        <item>messages</item>
+    </string-array>
+    <!---->
+    <!--Programming Start-->
+    <string-array name="questionProg">
+        <item>What is the most famous programming language?</item>
+        <item>Which is used for backend programming?</item>
+        <item>The "H" in HTML Stands for ___.</item>
+        <item>How many data types are there in java?</item>
+        <item>Print/output in C++</item>
+        <item>Programming Language used in Android Studio besides Java?</item>
+        <item>IDE for Android Development</item>
+        <item>What is used for conditional statements?</item>
+        <item>What data type is used for true or false?</item>
+        <item>Data type commonly used for decimals in JAVA?</item>
+        <item>Used to show that 2 variables are equal</item>
+        <item>2nd most famous programming language?</item>
+    </string-array>
+    <string-array name="choicesProg">
+        <item>Java,C,VB.NET,Javascript</item>
+        <item>C++,Java,MySQL,HTML</item>
+        <item>Hypertext,Hyperlink,Hayward,Home</item>
+        <item>5,8,6,7</item>
+        <item>println,print,cout,show()</item>
+        <item>Kotlin,Ruby,C#,None of the Above</item>
+        <item>Eclipse,Visual Studio,Android Studio,Netbeans</item>
+        <item>if-else,for,do-while,array</item>
+        <item>int,char,boolean,double</item>
+        <item>int,boolean,char,double</item>
+        <item>==,===,=,||</item>
+        <item>C++,C,Php,Java</item>
+
+
+    </string-array>
+    <string-array name="correctProg">
+        <item>C</item>
+        <item>MySQL</item>
+        <item>Hypertext</item>
+        <item>8</item>
+        <item>cout</item>
+        <item>Kotlin</item>
+        <item>Android Studio</item>
+        <item>if-else</item>
+        <item>boolean</item>
+        <item>double</item>
+        <item>==</item>
+        <item>Java</item>
+    </string-array>
+    <!---->
+    <!--VB Start-->
+    <string-array name="questionVb">
+        <item>What is the three-character extension appended to solution filenames in Visual Basic</item>
+        <item>Statement that allows you to declare variables </item>
+        <item>A(n) ____ is an environment that contains all of the tools and features you need to create, run, and test your programs.</item>
+        <item>This property is important because it is needed primarily in calling the tool in coding.</item>
+        <item>Format specifier to display the string with a dollar sign</item>
+        <item>Which data type is appropriate for storing the name of a street?</item>
+        <item>To display the words ABC company in a form’s title bar, you need to set which of the forms properties?</item>
+        <item>What data type would this information be? (1 2 3 4 5 )</item>
+        <item>Which of the following events occurs when a check box is clicked?</item>
+        <item>If Harry wants to edit the BackColor, foreColor and visibility of the label, he must proceed to the ______</item>
+        <item>A ______ variable is declared within a method</item>
+        <item>Which statement terminates an application?</item>
+    </string-array>
+    <string-array name="choicesVb">
+        <item>vbn,sln,jav,txt</item>
+        <item>var,String,Public,dim</item>
+        <item>Console,IDE,Compiler,CLI</item>
+        <item>Text,Name,Attribute,Identifier</item>
+        <item>C,N,F,P</item>
+        <item>Decimal,Boolean,Integer,String</item>
+        <item>Name,Language,Text,Tag</item>
+        <item>Boolean,Char,Integer,Float</item>
+        <item>OnClick,TextChanged,Leave,CheckChanged</item>
+        <item>Attribute,Toolbox,Event,Property</item>
+        <item>local,block,public,modular</item>
+        <item>Me.Close(),Me.Terminate(),Me.Focus(),Me.CheckChanged()</item>
+
+
+    </string-array>
+    <string-array name="correctVb">
+        <item>sln</item>
+        <item>dim</item>
+        <item>IDE</item>
+        <item>Name</item>
+        <item>C</item>
+        <item>String</item>
+        <item>Text</item>
+        <item>Integer</item>
+        <item>CheckChanged</item>
+        <item>Property</item>
+        <item>local</item>
+        <item>Me.Close()</item>
+    </string-array>
+    <!---->
+    <!--Android Start-->
+    <string-array name="questionAndroid">
+        <item>Which of the following is not a valid Android resource file name?</item>
+        <item>What is the parent class of all Activity widgets?</item>
+        <item>During an Activity life-cycle, what is the first callback method invoked by the system?</item>
+        <item>Which of these files contains text values that you can use in your application?</item>
+        <item>What does the src folder contain?</item>
+        <item>Which of the following is a java call-back method invoked when a view is clicked?</item>
+        <item>It runs in the background for an indefinite period of time.</item>
+        <item>It is a control that contain light indicator which can be turned to either on or off.</item>
+        <item>It is called when the activity starts interacting with the user.</item>
+        <item>It is a component of an application that used to store and receive data and make it accessible to all applications.</item>
+        <item>It is a control that is used for displaying text for the users.</item>
+        <item>It is an open mobile phone platform that was developed by Google.</item>
+    </string-array>
+    <string-array name="choicesAndroid">
+        <item>myLayout.xml,my_layout.xml,mylayout.xml,mylayout1.xml</item>
+        <item>ViewGroup,Layout,Widget,View</item>
+        <item>onRestore(),onStop(),onStart(),onCreate()</item>
+        <item>res/layout/Main.xml,res/Text.xml,res/values/Strings.xml,AndroidManifest.xml</item>
+        <item>The application manifest file,Java source code files,Image and icon files,XML resource files</item>
+        <item>OnTapListener,Detector,OnClickDetector,OnClickListener</item>
+        <item>Services,Broadcast receivers,Content providers,Activities</item>
+        <item>ImageButton,ToggleButton,CheckBox,Button</item>
+        <item>onResume(),onCreate(),onPause(),onStart()</item>
+        <item>Services,Content providers,Broadcast receivers,Activities</item>
+        <item>RadioButton,Button,EditText,TextView</item>
+        <item>Android,IOS,Google,Safari</item>
+
+
+    </string-array>
+    <string-array name="correctAndroid">
+        <item>myLayout.xml</item>
+        <item>View</item>
+        <item>onCreate()</item>
+        <item>res/values/Strings.xml</item>
+        <item>Java source code files</item>
+        <item>OnClickListener</item>
+        <item>Services</item>
+        <item>ToggleButton</item>
+        <item>onResume()</item>
+        <item>Content providers</item>
+        <item>TextView</item>
+        <item>Android</item>
+    </string-array>
+    <!---->
+</resources>

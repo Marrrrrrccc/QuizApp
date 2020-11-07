@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,15 +43,17 @@ public class insideQuiz extends AppCompatActivity {
     private Button mButtonChoice4;
     private Button mButtonSave;
     private TextView mExamTitle;
+    private String file;
 
     private String mAnswer;
-    private int counter = 0;
-    private int mScore = 0;//
+    private int mScore = 0;
     private int mQuestionNumber = 0;
     private String toast;
     private Button mButtonNext;
     private CardView cardView;
     private String quiz;
+    private String[] questions;
+    private String[] choices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,7 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice4 = findViewById(R.id.choice4);
         mButtonNext = findViewById(R.id.next);
         quiz = String.valueOf(getIntent().getStringExtra("quiz"));
+
         updateQuestion();
 
         //adds button onclick listener
@@ -148,11 +152,12 @@ public class insideQuiz extends AppCompatActivity {
                 mButtonChoice3.setBackgroundResource(android.R.drawable.btn_default);
                 mButtonChoice4.setBackgroundResource(android.R.drawable.btn_default);
                 updateQuestion();
-//                save(view,FILE_NAME);
-                Log.d("Test", "score" + mScore);
+//                save(view,file);
+
             }
         });
     }
+
 
         //method for going back to the homescreen
         public void toHomescreen () {
@@ -168,7 +173,7 @@ public class insideQuiz extends AppCompatActivity {
         }
 
         //method the updates the question
-        private void updatescore(int point){
+        private void updateScore(int point){
         mScoreView.setText("" + mScore);
     }
         //method to set the animations
@@ -199,14 +204,12 @@ public class insideQuiz extends AppCompatActivity {
         String choice3 = "Choice3:" + mButtonChoice3.getText().toString();
         String choice4 = "Choice4:" + mButtonChoice4.getText().toString();
         String correctAnswer = "correct answer:" +mAnswer;
-        counter++;
         File file = new File(getFilesDir() + "/" + name); //path where it is save
         String lineSeparator = System.getProperty("line.separator"); //new line
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(file, true);
             fos = openFileOutput(name, MODE_APPEND);
-
             fos.write(question.getBytes());//display the questions
             fos.write(lineSeparator.getBytes());//creates a new line
             fos.write(choice1.getBytes());//display the choices
@@ -237,55 +240,66 @@ public class insideQuiz extends AppCompatActivity {
     public void updateQuestion(){
         switch (quiz){
             case "programming"://pagka "programming" "quiz" yung pinindot
-                FILE_NAME = "programming.txt";//set the name of the file
-                updateQuestions(FILE_NAME);
+//                FILE_NAME = "programming.txt";//set the name of the file
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Programming",R.array.questionProg,R.array.choicesProg,R.array.correctProg);
                 break;
             case "Aos":
-                FILE_NAME = "Aos.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME = "Aos.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("AOS",R.array.questionAos,R.array.choicesAos,R.array.correctAos);
+//                file = "AAA.txt";
                 break;
             case "FRONT-END":
-                FILE_NAME = "front-end.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME = "front-end.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Front End",R.array.questionsFront,R.array.choicesFront,R.array.correctFront);
                 break;
             case "DATA ALGO":
-                FILE_NAME = "Data-Algo.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME = "Data-Algo.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Data Algorithm",R.array.questionDataAlgo,R.array.choicesDataAlgo,R.array.correctDataAlgo);
                 break;
             case "OS":
-                FILE_NAME = "operating system.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME = "operating system.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Operating System",R.array.questionOs,R.array.choicesOs,R.array.correctOs);
                 break;
             case "DM":
-                FILE_NAME= "Discrete.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME= "Discrete.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Discrete Math",R.array.questionDiscrete,R.array.choicesDiscrete,R.array.correctDiscrete);
                 break;
             case "ETHICS":
-                FILE_NAME= "Ethics.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME= "Ethics.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Ethics",R.array.questionEthics,R.array.choicesEthics,R.array.correctEthics);
                 break;
             case "VB":
-                FILE_NAME= "Visual-basic.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME= "Visual-basic.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Visual Basic",R.array.questionVb,R.array.choicesVb,R.array.correctVb);
                 break;
             case "HCI":
-                FILE_NAME= "HCI.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME= "HCI.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("HCI",R.array.questionHci,R.array.choicesHci,R.array.correctHci);
                 break;
             case "android":
-                FILE_NAME= "android.txt";
-                updateQuestions(FILE_NAME);
+//                FILE_NAME= "android.txt";
+//                txtQuestions(FILE_NAME);
+                xmlQuestion("Android",R.array.questionAndroid,R.array.choicesAndroid,R.array.correctAndroid);
                 break;
             case "comp":
-                FILE_NAME= "Computer Architecture.txt";
-              updateQuestions(FILE_NAME);
-
+//                FILE_NAME= "Computer Architecture.txt";
+//              txtQuestions(FILE_NAME);
+                xmlQuestion("Comp Archi",R.array.questionCompArki,R.array.choicesCompArki,R.array.correctCompArki);
                 break;
 
 
         }
     }
-    public void updateQuestions(String filename) {
+    public void txtQuestions(String filename) {
 
         try {
             FileInputStream fileInputStream = openFileInput(filename);
@@ -360,6 +374,22 @@ public class insideQuiz extends AppCompatActivity {
             ex.printStackTrace();
         }
 
+    }
+    public void xmlQuestion(String title,int question,int choice, int correctAnswer){
+        Resources res = getResources();
+        questions = res.getStringArray(question);
+        mQuestionView.setText(questions[mQuestionNumber]);
+        choices = res.getStringArray(choice);
+        String[] correct = res.getStringArray(correctAnswer);
+        String[] mainchoice = choices[mQuestionNumber].split(",");
+        mButtonChoice1.setText(mainchoice[0]);
+        mButtonChoice2.setText(mainchoice[1]);
+        mButtonChoice3.setText(mainchoice[2]);
+        mButtonChoice4.setText(mainchoice[3]);
+        mAnswer = correct[mQuestionNumber];
+        qNumber.setText("" + (mQuestionNumber + 1));
+        mQuestionNumber = ((mQuestionNumber + 1) % questions.length) ;
+        mExamTitle.setText(title);
     }
 
     }
