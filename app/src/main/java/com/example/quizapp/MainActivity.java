@@ -1,6 +1,7 @@
 package com.example.quizapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button openQuiz9 = (Button) findViewById(R.id.button9);
         Button openQuiz10 = (Button) findViewById(R.id.button10);
         Button openQuiz11 = (Button) findViewById(R.id.button11);
+        Button addNewFile = (Button) findViewById(R.id.addNewFile);
 
         openQuiz1.setOnClickListener(this);
         openQuiz2.setOnClickListener(this);
@@ -50,9 +52,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         openQuiz9.setOnClickListener(this);
         openQuiz10.setOnClickListener(this);
         openQuiz11.setOnClickListener(this);
+
+        addNewFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toCreateQuiz(v);
+            }
+        });
+
     }
 
-    //onclick method for the buttons
+
+    //onclick method for entering the quizzes
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -96,6 +107,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void openQuizAct(View view,String v) {
       i = new Intent(MainActivity.this, insideQuiz.class);
       i.putExtra("quiz",v);//para malipat yung data from this to the other activities
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void toCreateQuiz(View view) {
+        i = new Intent(MainActivity.this, CreateQuiz.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

@@ -177,24 +177,15 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/button38"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginBottom="30dp"
-        android:text="="
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
-        app:layout_constraintEnd_toStartOf="@+id/searchView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button39"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginBottom="30dp"
-        android:text="+"
+        android:id="@+id/addNewFile"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/add"
+        android:onClick="toAddFile"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/searchView"
@@ -204,13 +195,12 @@
         android:id="@+id/searchView"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/searchbg"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
-        app:layout_constraintEnd_toStartOf="@+id/button39"
-        app:layout_constraintStart_toEndOf="@+id/button38"
+        app:layout_constraintEnd_toStartOf="@+id/addNewFile"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
