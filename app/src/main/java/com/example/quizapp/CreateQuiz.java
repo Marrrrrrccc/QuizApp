@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class CreateQuiz extends AppCompatActivity {
 
@@ -22,6 +23,9 @@ public class CreateQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_create_quiz);
 
         Button backButton = (Button) findViewById(R.id.backButton3);
+        Button cancelButton = (Button) findViewById(R.id.cancelButton);
+        EditText quizName = (EditText) findViewById(R.id.quizName);
+        EditText quizTitle = (EditText) findViewById(R.id.quizTitle);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +33,16 @@ public class CreateQuiz extends AppCompatActivity {
                 toHomescreen();
             }
         });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toHomescreen();
+            }
+        });
+
+        //adds hint to the two edit texts
+        quizName.setHint("Quiz Name");
+        quizTitle.setHint("Title");
     }
 
     public void toHomescreen () {
