@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addNewFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toCreateQuiz(v);
+                toCreateQuiz();
             }
         });
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    public void toCreateQuiz(View view) {
+    public void toCreateQuiz() {
         i = new Intent(MainActivity.this, CreateQuiz.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

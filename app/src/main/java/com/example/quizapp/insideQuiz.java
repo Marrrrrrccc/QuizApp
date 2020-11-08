@@ -8,18 +8,13 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.view.View.OnClickListener;
 
 
 import java.io.BufferedReader;
@@ -71,8 +66,8 @@ public class insideQuiz extends AppCompatActivity {
         cardView = findViewById(R.id.question);
         mQuestionView = findViewById(R.id.questions);
         qNumber = findViewById(R.id.qNumber);
-        mButtonChoice1 = findViewById(R.id.choice1);
-        mButtonChoice2 = findViewById(R.id.choice2);
+        mButtonChoice1 = findViewById(R.id.addChoice1);
+        mButtonChoice2 = findViewById(R.id.addChoice2);
         mButtonChoice3 = findViewById(R.id.choice3);
         mButtonChoice4 = findViewById(R.id.choice4);
         mButtonNext = findViewById(R.id.next);

@@ -110,7 +110,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/choice1"
+                android:id="@+id/addChoice1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="0dp"
@@ -120,7 +120,7 @@
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/choice2"
+                android:id="@+id/addChoice2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="0dp"
