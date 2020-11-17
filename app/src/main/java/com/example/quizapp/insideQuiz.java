@@ -72,9 +72,7 @@ public class insideQuiz extends AppCompatActivity {
         mButtonChoice4 = findViewById(R.id.choice4);
         mButtonNext = findViewById(R.id.next);
         quiz = String.valueOf(getIntent().getStringExtra("quiz"));
-
         updateQuestion();
-
         //adds button onclick listener
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,14 +80,13 @@ public class insideQuiz extends AppCompatActivity {
                 toHomescreen();
             }
         });
-
         mButtonChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //logic starts here
                 if (mButtonChoice1.getText().equals(mAnswer)) {
                     mButtonChoice1.setBackgroundColor(Color.GREEN);
-                    mScore++;
+//                    mScore++;
                 } else {
                     mButtonChoice1.setBackgroundColor(Color.RED);
                 }
@@ -102,7 +99,7 @@ public class insideQuiz extends AppCompatActivity {
                 //logic starts here
                 if (mButtonChoice2.getText().equals(mAnswer)) {
                     mButtonChoice2.setBackgroundColor(Color.GREEN);
-                    mScore++;
+//                    mScore++;
                 } else {
                     mButtonChoice2.setBackgroundColor(Color.RED);
                 }
@@ -114,7 +111,7 @@ public class insideQuiz extends AppCompatActivity {
                 //logic starts here
                 if (mButtonChoice3.getText().equals(mAnswer)) {
                     mButtonChoice3.setBackgroundColor(Color.GREEN);
-                    mScore++;
+//                    mScore++;
                 } else {
                     mButtonChoice3.setBackgroundColor(Color.RED);
                 }
@@ -126,7 +123,7 @@ public class insideQuiz extends AppCompatActivity {
                 //logic starts here
                 if (mButtonChoice4.getText().equals(mAnswer)) {
                     mButtonChoice4.setBackgroundColor(Color.GREEN);
-                    mScore++;
+//                    mScore++;
                 } else {
                     mButtonChoice4.setBackgroundColor(Color.RED);
                 }
@@ -141,19 +138,18 @@ public class insideQuiz extends AppCompatActivity {
                 //slideUp(mButtonChoice3);
                 //slideUp(mButtonChoice4);
                 swipe(cardView);
+                save(view,FILE_NAME);
                 //slideLeft(cardView);
                 mButtonChoice1.setBackgroundResource(android.R.drawable.btn_default);//brings back the color of each button
                 mButtonChoice2.setBackgroundResource(android.R.drawable.btn_default);
                 mButtonChoice3.setBackgroundResource(android.R.drawable.btn_default);
                 mButtonChoice4.setBackgroundResource(android.R.drawable.btn_default);
                 updateQuestion();
-//                save(view,file);
+
 
             }
         });
     }
-
-
         //method for going back to the homescreen
         public void toHomescreen () {
             Intent intent = new Intent(this, MainActivity.class);
@@ -178,17 +174,6 @@ public class insideQuiz extends AppCompatActivity {
             v.setAnimation(swipe);
         }
 
-       /* private void slideRight (View v){
-            Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_right);
-            v.setAnimation(slide);
-
-        }
-
-        private void slideLeft (View v){
-            Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_left);
-            v.setAnimation(slide);
-
-        } */
 
         //method that save the question to a text file
 
@@ -235,141 +220,54 @@ public class insideQuiz extends AppCompatActivity {
     public void updateQuestion(){
         switch (quiz){
             case "programming"://pagka "programming" "quiz" yung pinindot
-//                FILE_NAME = "programming.txt";//set the name of the file
-//                txtQuestions(FILE_NAME);
+                FILE_NAME = "programming.txt";//set the name of the file
                 xmlQuestion("Programming",R.array.questionProg,R.array.choicesProg,R.array.correctProg);
                 break;
             case "Aos":
-//                FILE_NAME = "Aos.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME = "Aos.txt";
                 xmlQuestion("AOS",R.array.questionAos,R.array.choicesAos,R.array.correctAos);
-//                file = "AAA.txt";
                 break;
             case "FRONT-END":
-//                FILE_NAME = "front-end.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME = "front-end.txt";
                 xmlQuestion("Front End",R.array.questionsFront,R.array.choicesFront,R.array.correctFront);
                 break;
             case "DATA ALGO":
-//                FILE_NAME = "Data-Algo.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME = "Data-Algo.txt";
                 xmlQuestion("Data Algorithm",R.array.questionDataAlgo,R.array.choicesDataAlgo,R.array.correctDataAlgo);
                 break;
             case "OS":
-//                FILE_NAME = "operating system.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME = "operating system.txt";
                 xmlQuestion("Operating System",R.array.questionOs,R.array.choicesOs,R.array.correctOs);
                 break;
             case "DM":
-//                FILE_NAME= "Discrete.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME= "Discrete.txt";
                 xmlQuestion("Discrete Math",R.array.questionDiscrete,R.array.choicesDiscrete,R.array.correctDiscrete);
                 break;
             case "ETHICS":
-//                FILE_NAME= "Ethics.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME= "Ethics.txt";
                 xmlQuestion("Ethics",R.array.questionEthics,R.array.choicesEthics,R.array.correctEthics);
                 break;
             case "VB":
-//                FILE_NAME= "Visual-basic.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME= "Visual-basic.txt";
                 xmlQuestion("Visual Basic",R.array.questionVb,R.array.choicesVb,R.array.correctVb);
                 break;
             case "HCI":
-//                FILE_NAME= "HCI.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME= "HCI.txt";
                 xmlQuestion("HCI",R.array.questionHci,R.array.choicesHci,R.array.correctHci);
                 break;
             case "android":
-//                FILE_NAME= "android.txt";
-//                txtQuestions(FILE_NAME);
+                FILE_NAME= "android.txt";
                 xmlQuestion("Android",R.array.questionAndroid,R.array.choicesAndroid,R.array.correctAndroid);
                 break;
             case "comp":
-//                FILE_NAME= "Computer Architecture.txt";
-//              txtQuestions(FILE_NAME);
+                FILE_NAME= "Computer Architecture.txt";
                 xmlQuestion("Comp Archi",R.array.questionCompArki,R.array.choicesCompArki,R.array.correctCompArki);
                 break;
 
 
         }
     }
-    public void txtQuestions(String filename) {
 
-        try {
-            FileInputStream fileInputStream = openFileInput(filename);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            StringBuffer q = new StringBuffer();
-            StringBuffer c = new StringBuffer();
-
-            StringBuilder sb = new StringBuilder();
-            ArrayList<String> questions = new ArrayList<>();
-            ArrayList<String> choice1 = new ArrayList<>();
-            ArrayList<String> choice2 = new ArrayList<>();
-            ArrayList<String> choice3 = new ArrayList<>();
-            ArrayList<String> choice4 = new ArrayList<>();
-            ArrayList<String> correct = new ArrayList<>();
-            ArrayList<String> title = new ArrayList<>();
-            String line = bufferedReader.readLine();
-            while (line!= null) {
-                if (line.contains("Title:")){
-                    line = line.replace("Title:","");
-                    title.add(line);
-                }
-                if(line.contains("Question:")){
-                    line = line.replace("Question:","");
-                    questions.add(line);
-
-                }
-                if(line.contains("Choice1:")){
-                    line = line.replace("Choice1:", "");
-                    choice1.add(line);
-
-                }
-                if(line.contains("Choice2:")){
-                    line = line.replace("Choice2:", "");
-                    choice2.add(line);
-
-                }
-                if(line.contains("Choice3:")){
-                    line = line.replace("Choice3:", "");
-                    choice3.add(line);
-
-                }
-                if(line.contains("Choice4:")){
-                    line = line.replace("Choice4:", "");
-                    choice4.add(line);
-
-                }if(line.contains("correct answer:")){
-                    line = line.replace("correct answer:", "");
-                    correct.add(line);
-
-                }
-                line = bufferedReader.readLine();
-
-            }
-            bufferedReader.close();
-
-            q.append(questions.get(mQuestionNumber));
-            mQuestionView.setText(q);
-            mButtonChoice1.setText(choice1.get(mQuestionNumber));
-            mButtonChoice2.setText(choice2.get(mQuestionNumber));
-            mButtonChoice3.setText(choice3.get(mQuestionNumber));
-            mButtonChoice4.setText(choice4.get(mQuestionNumber));
-            mAnswer = correct.get(mQuestionNumber);
-            qNumber.setText("" + (mQuestionNumber + 1));
-            mQuestionNumber = ((mQuestionNumber + 1) % questions.size()) ;
-
-            mExamTitle.setText(title.get(0));
-        } catch(FileNotFoundException ex){
-            ex.printStackTrace();
-        } catch(IOException ex){
-            ex.printStackTrace();
-        }
-
-    }
     public void xmlQuestion(String title,int question,int choice, int correctAnswer){
         Resources res = getResources();
         questions = res.getStringArray(question);
@@ -386,6 +284,89 @@ public class insideQuiz extends AppCompatActivity {
         mQuestionNumber = ((mQuestionNumber + 1) % questions.length) ;
         mExamTitle.setText(title);
     }
+//    public void txtQuestions(String filename) {
+//
+//        try {
+//            FileInputStream fileInputStream = openFileInput(filename);
+//            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+//
+//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//            StringBuffer q = new StringBuffer();
+//            ArrayList<String> questions = new ArrayList<>();
+//            ArrayList<String> choice1 = new ArrayList<>();
+//            ArrayList<String> choice2 = new ArrayList<>();
+//            ArrayList<String> choice3 = new ArrayList<>();
+//            ArrayList<String> choice4 = new ArrayList<>();
+//            ArrayList<String> correct = new ArrayList<>();
+//            ArrayList<String> title = new ArrayList<>();
+//            String line = bufferedReader.readLine();
+//            while (line!= null) {
+//                if (line.contains("Title:")){
+//                    line = line.replace("Title:","");
+//                    title.add(line);
+//                }
+//                if(line.contains("Question:")){
+//                    line = line.replace("Question:","");
+//                    questions.add(line);
+//
+//                }
+//                if(line.contains("Choice1:")){
+//                    line = line.replace("Choice1:", "");
+//                    choice1.add(line);
+//
+//                }
+//                if(line.contains("Choice2:")){
+//                    line = line.replace("Choice2:", "");
+//                    choice2.add(line);
+//
+//                }
+//                if(line.contains("Choice3:")){
+//                    line = line.replace("Choice3:", "");
+//                    choice3.add(line);
+//
+//                }
+//                if(line.contains("Choice4:")){
+//                    line = line.replace("Choice4:", "");
+//                    choice4.add(line);
+//
+//                }if(line.contains("correct answer:")){
+//                    line = line.replace("correct answer:", "");
+//                    correct.add(line);
+//
+//                }
+//                line = bufferedReader.readLine();
+//
+//            }
+//            bufferedReader.close();
+//
+//            q.append(questions.get(mQuestionNumber));
+//            mQuestionView.setText(q);
+//            mButtonChoice1.setText(choice1.get(mQuestionNumber));
+//            mButtonChoice2.setText(choice2.get(mQuestionNumber));
+//            mButtonChoice3.setText(choice3.get(mQuestionNumber));
+//            mButtonChoice4.setText(choice4.get(mQuestionNumber));
+//            mAnswer = correct.get(mQuestionNumber);
+//            qNumber.setText("" + (mQuestionNumber + 1));
+//            mQuestionNumber = ((mQuestionNumber + 1) % questions.size()) ;
+//
+//            mExamTitle.setText(title.get(0));
+//        } catch(FileNotFoundException ex){
+//            ex.printStackTrace();
+//        } catch(IOException ex){
+//            ex.printStackTrace();
+//        }
+
+       /* private void slideRight (View v){
+            Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_right);
+            v.setAnimation(slide);
+
+        }
+
+        private void slideLeft (View v){
+            Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_left);
+            v.setAnimation(slide);
+
+        } */
 
     }
 
