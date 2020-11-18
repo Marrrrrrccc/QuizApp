@@ -140,10 +140,11 @@ public class insideQuiz extends AppCompatActivity {
                 swipe(cardView);
                 save(view,FILE_NAME);
                 //slideLeft(cardView);
-                mButtonChoice1.setBackgroundResource(android.R.drawable.btn_default);//brings back the color of each button
-                mButtonChoice2.setBackgroundResource(android.R.drawable.btn_default);
-                mButtonChoice3.setBackgroundResource(android.R.drawable.btn_default);
-                mButtonChoice4.setBackgroundResource(android.R.drawable.btn_default);
+                mButtonChoice1.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
+                mButtonChoice2.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
+                mButtonChoice3.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
+                mButtonChoice4.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
+
                 updateQuestion();
 
 

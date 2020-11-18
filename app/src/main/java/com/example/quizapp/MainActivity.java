@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 //implements onclick listener to make all buttons go to one xml
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button openQuiz9 = (Button) findViewById(R.id.button9);
         Button openQuiz10 = (Button) findViewById(R.id.button10);
         Button openQuiz11 = (Button) findViewById(R.id.button11);
+        Button addNewFile = (Button) findViewById(R.id.addNewFile);
 
         openQuiz1.setOnClickListener(this);
         openQuiz2.setOnClickListener(this);
@@ -50,6 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         openQuiz9.setOnClickListener(this);
         openQuiz10.setOnClickListener(this);
         openQuiz11.setOnClickListener(this);
+        addNewFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toAddFile();
+            }
+        });
     }
 
     //onclick method for the buttons
@@ -98,5 +106,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       i.putExtra("quiz",v);//para malipat yung data from this to the other activities
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void toAddFile() {
+        Intent intent = new Intent(this, CreateQuiz.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left); //animation for transitioning back to the homescreen
     }
 }

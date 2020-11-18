@@ -70,10 +70,12 @@
         android:id="@+id/next2"
         android:layout_width="17dp"
         android:layout_height="30dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="175dp"
         android:background="@drawable/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
