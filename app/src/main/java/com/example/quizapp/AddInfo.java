@@ -29,7 +29,7 @@ public class AddInfo extends AppCompatActivity {
         EditText addChoice1 = (EditText) findViewById(R.id.addChoice1);
         EditText addChoice2 = (EditText) findViewById(R.id.addChoice2);
         EditText addChoice3 = (EditText) findViewById(R.id.addChoice3);
-        EditText addChoice4 = (EditText) findViewById(R.id.addChoice4);
+        EditText correctChoice = (EditText) findViewById(R.id.correctChoice);
         Button backButton = (Button) findViewById(R.id.backButton2);
 
         Intent intent = getIntent();
@@ -49,7 +49,7 @@ public class AddInfo extends AppCompatActivity {
         addChoice1.setHint("Add Choice");
         addChoice2.setHint("Add Choice");
         addChoice3.setHint("Add Choice");
-        addChoice4.setHint("Add Choice");
+        correctChoice.setHint("Add Correct Answer");
 
     }
 

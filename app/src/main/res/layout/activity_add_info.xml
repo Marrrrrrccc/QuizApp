@@ -139,7 +139,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/addChoice4"
+                android:id="@+id/correctChoice"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginLeft="20dp"

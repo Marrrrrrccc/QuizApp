@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Button openQuiz1;
     public Button openQuiz2;
     private Intent i;
+    DatabaseHelper questionsDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        questionsDB = new DatabaseHelper (this);
 
          openQuiz1 = (Button) findViewById(R.id.quiz1);
          openQuiz2 = (Button) findViewById(R.id.button2);
