@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,9 +15,8 @@ import android.widget.Toast;
 
 public class CreateQuiz extends AppCompatActivity {
 
-    public String newTitle;
     MainActivity main = new MainActivity();
-    EditText quizName;
+    EditText quizName, quizTitle;
     Button toQuiz;
 
     @Override
@@ -35,9 +35,7 @@ public class CreateQuiz extends AppCompatActivity {
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
         toQuiz = (Button) findViewById(R.id.nextButton);
         quizName = (EditText) findViewById(R.id.quizName);
-        EditText quizTitle = (EditText) findViewById(R.id.quizTitle);
-
-        newTitle = quizTitle.getText().toString();
+        quizTitle = (EditText) findViewById(R.id.quizTitle);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,14 +60,19 @@ public class CreateQuiz extends AppCompatActivity {
         toQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                toQuestionnaire(view, newTitle);
                 String qName = quizName.getText().toString();
-                boolean isInserted = main.questionsDB.insertQuiz(qName);
-                if (isInserted == true)
-                    Toast.makeText(CreateQuiz.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(CreateQuiz.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+                if (TextUtils.isEmpty(qName)) {
+                    Toast.makeText(CreateQuiz.this, "Please enter the needed information.", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    toQuestionnaire(view, qName);
+                    main.questionsDB.insertQuiz(qName);
+//                    boolean isInserted = main.questionsDB.insertQuiz(qName);
+//                    if (isInserted == true)
+//                        Toast.makeText(CreateQuiz.this, "Data Inserted", Toast.LENGTH_LONG).show();
+//                    else
+//                        Toast.makeText(CreateQuiz.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -82,9 +85,9 @@ public class CreateQuiz extends AppCompatActivity {
     }
 
     public void toQuestionnaire (View view, String v) {
-        Intent intent = new Intent(this, AddInfo.class);
-        intent.putExtra("title", v);
-        startActivity(intent);
+        Intent inte = new Intent(this, AddInfo.class);
+        inte.putExtra("title", v);
+        startActivity(inte);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left); //animation for transitioning back to the homescreen
     }
 

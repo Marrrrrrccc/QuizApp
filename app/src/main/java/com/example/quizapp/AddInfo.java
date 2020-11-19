@@ -49,6 +49,7 @@ public class AddInfo extends AppCompatActivity {
         Intent intent = getIntent();
 
         addedTitle = intent.getStringExtra("title");
+        Toast.makeText(AddInfo.this, addedTitle, Toast.LENGTH_LONG).show();
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +61,7 @@ public class AddInfo extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                swipe(image);
                 questionNum++;
                 String qsTxt = addQuestion.getText().toString();
                 String ch1 = addChoice1.getText().toString();
@@ -67,13 +69,12 @@ public class AddInfo extends AppCompatActivity {
                 String ch3 = addChoice3.getText().toString();
                 String cor = correctChoice.getText().toString();
                 String qNum = questionNum.toString();
-                boolean isInserted = main.questionsDB.insertData(qsTxt, ch1, ch2, ch3, cor, qNum);
-                if (isInserted == true)
-                    Toast.makeText(AddInfo.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(AddInfo.this, "Data not Inserted", Toast.LENGTH_LONG).show();
-
-                swipe(image);
+                main.questionsDB.insertData(qsTxt, ch1, ch2, ch3, cor, qNum);
+//                boolean isInserted = main.questionsDB.insertData(qsTxt, ch1, ch2, ch3, cor, qNum);
+//                if (isInserted == true)
+//                    Toast.makeText(AddInfo.this, "Data Inserted", Toast.LENGTH_LONG).show();
+//                else
+//                    Toast.makeText(AddInfo.this, "Data not Inserted", Toast.LENGTH_LONG).show();
                 addQuestion.getText().clear();
                 addChoice1.getText().clear();
                 addChoice2.getText().clear();

@@ -152,10 +152,11 @@
 
     <TextView
         android:id="@+id/quizTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="315dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="150dp"
+        android:layout_marginEnd="34dp"
         android:layout_marginBottom="620dp"
         android:fontFamily="@font/roboto_bold"
         android:gravity="start"
@@ -165,10 +166,9 @@
         app:flow_horizontalAlign="start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backButton2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459"
+        app:layout_constraintVertical_bias="0.566"
         tools:text="Exam Title" />
 
     <ImageView
