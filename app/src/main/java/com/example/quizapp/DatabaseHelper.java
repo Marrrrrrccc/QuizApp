@@ -1,10 +1,9 @@
 package com.example.quizapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -12,18 +11,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME_1 = "Quiz_Table";
     public static final String T1_COL_1 = "Quiz_ID";
     public static final String T1_COL_2 = "Quiz_Name";
-    public static final String T1_COL_3 = "Question_ID";
 
     public static final String TABLE_NAME_2 = "Question_Table";
     public static final String T2_COL_1 = "Question_ID";
     public static final String T2_COL_2 = "Question";
-    public static final String T2_COL_3 = "Choice_ID";
+    public static final String T2_COL_3 = "Choice_1";
+    public static final String T2_COL_4 = "Choice_2";
+    public static final String T2_COL_5 = "Choice_3";
+    public static final String T2_COL_6 = "Correct";
+    public static final String T2_COL_7 = "Question_num";
+    public static final String T2_COL_8 = "Quiz_ID";
+
 
 
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
@@ -55,5 +58,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Question_Table");
         onCreate(db);
     }
+
+    public boolean insertData (String question, String Choice_1, String Choice_2, String Choice_3, String Correct, String Question_num ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T2_COL_2,question);
+        contentValues.put(T2_COL_3,Choice_1);
+        contentValues.put(T2_COL_4,Choice_2);
+        contentValues.put(T2_COL_5,Choice_3);
+        contentValues.put(T2_COL_6,Correct);
+        contentValues.put(T2_COL_7,Question_num);
+        long result = db.insert(TABLE_NAME_2, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertQuiz (String quizName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T1_COL_2, quizName);
+        long result = db.insert(TABLE_NAME_1, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
+
 
 }

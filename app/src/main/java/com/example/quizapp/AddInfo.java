@@ -10,10 +10,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddInfo extends AppCompatActivity {
 
     private String addedTitle;
+    MainActivity main = new MainActivity();
+    private Integer questionNum = 0;
+    EditText addQuestion, addChoice1, addChoice2, addChoice3, correctChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +29,13 @@ public class AddInfo extends AppCompatActivity {
         setContentView(R.layout.activity_add_info);
 
         TextView quizTitle = (TextView) findViewById(R.id.quizTitle);
-        EditText addQuestion = (EditText) findViewById(R.id.addQuestion);
-        EditText addChoice1 = (EditText) findViewById(R.id.addChoice1);
-        EditText addChoice2 = (EditText) findViewById(R.id.addChoice2);
-        EditText addChoice3 = (EditText) findViewById(R.id.addChoice3);
-        EditText correctChoice = (EditText) findViewById(R.id.correctChoice);
+        addQuestion = (EditText) findViewById(R.id.addQuestion);
+        addChoice1 = (EditText) findViewById(R.id.addChoice1);
+        addChoice2 = (EditText) findViewById(R.id.addChoice2);
+        addChoice3 = (EditText) findViewById(R.id.addChoice3);
+        correctChoice = (EditText) findViewById(R.id.correctChoice);
         Button backButton = (Button) findViewById(R.id.backButton2);
+        Button nextButton = (Button) findViewById(R.id.next2);
 
         Intent intent = getIntent();
 
@@ -40,6 +45,24 @@ public class AddInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 toHomescreen();
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                questionNum++;
+                String qsTxt = addQuestion.getText().toString();
+                String ch1 = addChoice1.getText().toString();
+                String ch2 = addChoice2.getText().toString();
+                String ch3 = addChoice3.getText().toString();
+                String cor = correctChoice.getText().toString();
+                String qNum = questionNum.toString();
+                boolean isInserted = main.questionsDB.insertData("asd","dsa","sda","Dasd","asd","1");
+                if (isInserted == true)
+                    Toast.makeText(AddInfo.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(AddInfo.this, "Data not Inserted", Toast.LENGTH_LONG).show();
             }
         });
 

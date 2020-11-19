@@ -1,6 +1,7 @@
 package com.example.quizapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Button openQuiz1;
     public Button openQuiz2;
     private Intent i;
-    DatabaseHelper questionsDB;
+    public DatabaseHelper questionsDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        questionsDB = new DatabaseHelper (this);
+        questionsDB = new DatabaseHelper(this);
 
-         openQuiz1 = (Button) findViewById(R.id.quiz1);
+        openQuiz1 = (Button) findViewById(R.id.quiz1);
          openQuiz2 = (Button) findViewById(R.id.button2);
         Button openQuiz3 = (Button) findViewById(R.id.button3);
         Button openQuiz4 = (Button) findViewById(R.id.button4);
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
+
 
     //onclick method for the buttons
     @Override
