@@ -10,10 +10,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CreateQuiz extends AppCompatActivity {
 
     public String newTitle;
+    MainActivity main = new MainActivity();
+    EditText quizName;
+    Button toQuiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +29,12 @@ public class CreateQuiz extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_create_quiz);
 
+        main.questionsDB = new DatabaseHelper(this);
+
         Button backButton = (Button) findViewById(R.id.backButton3);
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
-        Button toQuiz = (Button) findViewById(R.id.nextButton);
-        EditText quizName = (EditText) findViewById(R.id.quizName);
+        toQuiz = (Button) findViewById(R.id.nextButton);
+        quizName = (EditText) findViewById(R.id.quizName);
         EditText quizTitle = (EditText) findViewById(R.id.quizTitle);
 
         newTitle = quizTitle.getText().toString();
@@ -45,17 +51,28 @@ public class CreateQuiz extends AppCompatActivity {
                 toHomescreen();
             }
         });
+
+        //adds hint to the two edit texts
+        quizName.setHint("Quiz Name");
+        quizTitle.setHint("Title");
+        AddQuiz();
+    }
+
+    public void AddQuiz() {
         toQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 toQuestionnaire(view, newTitle);
+                String qName = quizName.getText().toString();
+                boolean isInserted = main.questionsDB.insertQuiz(qName);
+                if (isInserted == true)
+                    Toast.makeText(CreateQuiz.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(CreateQuiz.this, "Data not Inserted", Toast.LENGTH_LONG).show();
             }
         });
 
-        //adds hint to the two edit texts
-        quizName.setHint("Quiz Name");
-        quizTitle.setHint("Title");
     }
 
     public void toHomescreen () {

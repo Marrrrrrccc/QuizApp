@@ -1,14 +1,19 @@
 package com.example.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +23,7 @@ public class AddInfo extends AppCompatActivity {
     MainActivity main = new MainActivity();
     private Integer questionNum = 0;
     EditText addQuestion, addChoice1, addChoice2, addChoice3, correctChoice;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +41,10 @@ public class AddInfo extends AppCompatActivity {
         addChoice2 = (EditText) findViewById(R.id.addChoice2);
         addChoice3 = (EditText) findViewById(R.id.addChoice3);
         correctChoice = (EditText) findViewById(R.id.correctChoice);
+        image = (ImageView) findViewById(R.id.imageView11);
         Button backButton = (Button) findViewById(R.id.backButton2);
         Button nextButton = (Button) findViewById(R.id.next2);
+
 
         Intent intent = getIntent();
 
@@ -59,11 +67,18 @@ public class AddInfo extends AppCompatActivity {
                 String ch3 = addChoice3.getText().toString();
                 String cor = correctChoice.getText().toString();
                 String qNum = questionNum.toString();
-                boolean isInserted = main.questionsDB.insertData("asd","dsa","sda","Dasd","asd","1");
+                boolean isInserted = main.questionsDB.insertData(qsTxt, ch1, ch2, ch3, cor, qNum);
                 if (isInserted == true)
                     Toast.makeText(AddInfo.this, "Data Inserted", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(AddInfo.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+
+                swipe(image);
+                addQuestion.getText().clear();
+                addChoice1.getText().clear();
+                addChoice2.getText().clear();
+                addChoice3.getText().clear();
+                correctChoice.getText().clear();
             }
         });
 
@@ -75,6 +90,11 @@ public class AddInfo extends AppCompatActivity {
         addChoice3.setHint("Add Choice");
         correctChoice.setHint("Add Correct Answer");
 
+    }
+
+    private void swipe (View v){
+        Animation swipe = AnimationUtils.loadAnimation(AddInfo.this, R.anim.swipe);
+        v.setAnimation(swipe);
     }
 
     public void toHomescreen () {

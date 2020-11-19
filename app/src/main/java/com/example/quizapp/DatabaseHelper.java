@@ -31,23 +31,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        db.execSQL("CREATE TABLE Quiz_Table (Quiz_ID INT(50) NOT NULL PRIMARY KEY, Quiz_Name VARCHAR(100) NOT NULL, Question_ID INT(50) NOT NULL, FOREIGN KEY (Question_ID) REFERENCES Question_Table(Question_ID))");
-//        db.execSQL("CREATE TABLE Question_Table (Question_ID INT(50) NOT NULL PRIMARY KEY, Question VARCHAR(100) NOT NULL, Choice_ID INT(50) NOT NULL, FOREIGN KEY (Choice_ID) REFERENCES Choice_Table(Choice_ID))");
-//        db.execSQL("CREATE TABLE Choice_Table (Choice_ID INT(50) NOT NULL PRIMARY KEY, Choice_1 VARCHAR(100) NOT NULL, Choice_2 VARCHAR(100) NOT NULL, Choice_3 VARCHAR(100) NOT NULL, Correct_Answer VARCHAR(100) NOT NULL, Quiz_ID INT(50) NOT NULL, FOREIGN KEY (Quiz_ID) REFERENCES Quiz_Table(Quiz_ID))");
 
         db.execSQL("CREATE TABLE Quiz_Table (" +
-                "Quiz_ID INT(50) NOT NULL PRIMARY KEY, " +
-                "Quiz_Name VARCHAR(100) NOT NULL)");
+                "Quiz_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Quiz_Name TEXT)");
 
         db.execSQL("CREATE TABLE Question_Table (" +
-                "Question_ID INT(50) NOT NULL PRIMARY KEY, " +
-                "Question VARCHAR(100) NOT NULL, " +
-                "Choice_1 VARCHAR(100) NOT NULL, " +
-                "Choice_2 VARCHAR(100) NOT NULL, " +
-                "Choice_3 VARCHAR(100) NOT NULL, " +
-                "Correct VARCHAR(100) NOT NULL, " +
-                "Question_num INT(50) NOT NULL, " +
-                "Quiz_ID INT(50) NOT NULL, " +
+                "Question_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Question TEXT, " +
+                "Choice_1 TEXT, " +
+                "Choice_2 TEXT, " +
+                "Choice_3 TEXT, " +
+                "Correct TEXT, " +
+                "Question_num INTEGER, " +
+                "Quiz_ID INTEGER, " +
                 "FOREIGN KEY (Quiz_ID) REFERENCES Quiz_Table(Quiz_ID))");
     }
 
