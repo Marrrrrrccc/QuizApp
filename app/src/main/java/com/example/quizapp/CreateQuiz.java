@@ -67,6 +67,7 @@ public class CreateQuiz extends AppCompatActivity {
                 } else {
                     toQuestionnaire(view, qName);
                     main.questionsDB.insertQuiz(qName);
+
 //                    boolean isInserted = main.questionsDB.insertQuiz(qName);
 //                    if (isInserted == true)
 //                        Toast.makeText(CreateQuiz.this, "Data Inserted", Toast.LENGTH_LONG).show();

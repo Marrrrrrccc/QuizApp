@@ -26,6 +26,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 
 public class insideQuiz extends AppCompatActivity {
@@ -283,6 +286,16 @@ public class insideQuiz extends AppCompatActivity {
     }
     public void getQuestion(String id, String name){
 
+        Integer[] intArray = { 2, 3, 4, 5 };
+
+        List<Integer> intList = Arrays.asList(intArray);
+
+        Collections.shuffle(intList);
+
+        intList.toArray(intArray);
+
+
+
 
         ArrayList<String> questions = new ArrayList<>();
         ArrayList<String> choice1 = new ArrayList<>();
@@ -311,10 +324,10 @@ public class insideQuiz extends AppCompatActivity {
 //        StringBuffer stringBuffer = new StringBuffer();
         while (res.moveToNext()){
             questions.add(res.getString(1));
-            choice1.add(res.getString(2));
-            choice2.add(res.getString(3));
-            choice3.add(res.getString(4));
-            choice4.add(res.getString(5));
+            choice1.add(res.getString(intArray[0]));
+            choice2.add(res.getString(intArray[1]));
+            choice3.add(res.getString(intArray[2]));
+            choice4.add(res.getString(intArray[3]));
             correct.add(res.getString(5));
 
 

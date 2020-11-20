@@ -36,7 +36,6 @@ public class AddInfo extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_add_info);
-
         main.questionsDB = new DatabaseHelper(this);
         TextView quizTitle = (TextView) findViewById(R.id.quizTitle);
         addQuestion = (EditText) findViewById(R.id.addQuestion);
