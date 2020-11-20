@@ -236,7 +236,7 @@ public class insideQuiz extends AppCompatActivity {
             case "FRONT-END":
 //                FILE_NAME = "front-end.txt";
 //                xmlQuestion("Front End",R.array.questionsFront,R.array.choicesFront,R.array.correctFront);
-                getQuestion("7","Front-End");
+                getQuestion("7","Front-end");
                 break;
             case "DATA ALGO":
 //                FILE_NAME = "Data-Algo.txt";
@@ -355,7 +355,7 @@ public class insideQuiz extends AppCompatActivity {
 //                            showMessage("Error","nothing found");
             return;
         }
-        StringBuffer stringBuffer = new StringBuffer();
+//        StringBuffer stringBuffer = new StringBuffer();
         while (res.moveToNext()){
             questions.add(res.getString(1));
             choice1.add(res.getString(2));

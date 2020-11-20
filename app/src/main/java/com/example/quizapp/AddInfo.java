@@ -47,8 +47,8 @@ public class AddInfo extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.imageView11);
         Button backButton = (Button) findViewById(R.id.backButton2);
         Button nextButton = (Button) findViewById(R.id.next2);
-        TextView questionNumber = (TextView)findViewById(R.id.qNumber2);
-        questionNumber.setText("" + (questionNum + 1));
+        final TextView questionNumber = (TextView)findViewById(R.id.qNumber2);
+
 
 
         Intent intent = getIntent();
@@ -72,6 +72,7 @@ public class AddInfo extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                questionNumber.setText("" + (questionNum + 2));
                 swipe(image);
                 questionNum++;
                 String qsTxt = addQuestion.getText().toString();
