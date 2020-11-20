@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class AddInfo extends AppCompatActivity {
 
-    public String addedTitle;
+    private String addedTitle;
     MainActivity main = new MainActivity();
     private Integer questionNum = 0;
     EditText addQuestion, addChoice1, addChoice2, addChoice3, correctChoice;
