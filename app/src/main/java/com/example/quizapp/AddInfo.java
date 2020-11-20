@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class AddInfo extends AppCompatActivity {
 
@@ -44,12 +47,20 @@ public class AddInfo extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.imageView11);
         Button backButton = (Button) findViewById(R.id.backButton2);
         Button nextButton = (Button) findViewById(R.id.next2);
+        TextView questionNumber = (TextView)findViewById(R.id.qNumber2);
+        questionNumber.setText("" + (questionNum + 1));
 
 
         Intent intent = getIntent();
 
         addedTitle = intent.getStringExtra("title");
         Toast.makeText(AddInfo.this, addedTitle, Toast.LENGTH_LONG).show();
+//        final Cursor quizName = main.questionsDB.getQuizNameID(addedTitle);
+
+
+
+
+
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +80,7 @@ public class AddInfo extends AppCompatActivity {
                 String ch3 = addChoice3.getText().toString();
                 String cor = correctChoice.getText().toString();
                 String qNum = questionNum.toString();
-                main.questionsDB.insertData(qsTxt, ch1, ch2, ch3, cor, qNum);
+                main.questionsDB.insertData(qsTxt, ch1, ch2, ch3, cor, qNum,addedTitle);
 //                boolean isInserted = main.questionsDB.insertData(qsTxt, ch1, ch2, ch3, cor, qNum);
 //                if (isInserted == true)
 //                    Toast.makeText(AddInfo.this, "Data Inserted", Toast.LENGTH_LONG).show();
@@ -80,6 +91,9 @@ public class AddInfo extends AppCompatActivity {
                 addChoice2.getText().clear();
                 addChoice3.getText().clear();
                 correctChoice.getText().clear();
+                if(questionNum == 12) {
+                    toHomescreen();
+                }
             }
         });
 

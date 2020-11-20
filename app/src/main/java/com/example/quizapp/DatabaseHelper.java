@@ -2,6 +2,7 @@ package com.example.quizapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -21,6 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String T2_COL_6 = "Correct";
     public static final String T2_COL_7 = "Question_num";
     public static final String T2_COL_8 = "Quiz_ID";
+
 
 
 
@@ -56,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData (String question, String Choice_1, String Choice_2, String Choice_3, String Correct, String Question_num ) {
+    public boolean insertData (String question, String Choice_1, String Choice_2, String Choice_3, String Correct, String Question_num,String Id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(T2_COL_2,question);
@@ -65,6 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(T2_COL_5,Choice_3);
         contentValues.put(T2_COL_6,Correct);
         contentValues.put(T2_COL_7,Question_num);
+        contentValues.put(T2_COL_8,Id);
         long result = db.insert(TABLE_NAME_2, null, contentValues);
         if (result == -1)
             return false;
@@ -74,13 +77,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean insertQuiz (String quizName) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+
         ContentValues contentValues = new ContentValues();
         contentValues.put(T1_COL_2, quizName);
+
         long result = db.insert(TABLE_NAME_1, null, contentValues);
         if (result == -1)
             return false;
         else
             return true;
+    }
+    public Cursor getQuizData(String id){//reading the data to the database
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ TABLE_NAME_2 + " WHERE Quiz_Id = ? ",new String[] {id});
+
+        return res;
+    }
+    public Cursor getQuizName(String QuizName){//reading the data to the database
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor res = db.rawQuery("select * from "+ TABLE_NAME_1 + " WHERE Quiz_Name = ?",new String[] {QuizName});
+        return res;
+    }
+    public Cursor getQuizNameID(String QuizName){//reading the data to the database
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ TABLE_NAME_1 + " WHERE Quiz_Name = ?",new String[]{QuizName});
+        res.getString(0);
+        return res;
     }
 
 

@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +40,7 @@ public class insideQuiz extends AppCompatActivity {
     private Button mButtonSave;
     private TextView mExamTitle;
     private String file;
-
+    private DatabaseHelper mydb = new DatabaseHelper(this);
     private String mAnswer;
     private int mScore = 0;
     private int mQuestionNumber = 0;
@@ -138,7 +139,7 @@ public class insideQuiz extends AppCompatActivity {
                 //slideUp(mButtonChoice3);
                 //slideUp(mButtonChoice4);
                 swipe(cardView);
-                save(view,FILE_NAME);
+//                save(view,FILE_NAME);
                 //slideLeft(cardView);
                 mButtonChoice1.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
                 mButtonChoice2.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
@@ -221,52 +222,116 @@ public class insideQuiz extends AppCompatActivity {
     public void updateQuestion(){
         switch (quiz){
             case "programming"://pagka "programming" "quiz" yung pinindot
-                FILE_NAME = "programming.txt";//set the name of the file
-                xmlQuestion("Programming",R.array.questionProg,R.array.choicesProg,R.array.correctProg);
+//                FILE_NAME = "programming.txt";//set the name of the file
+//                xmlQuestion("Programming",R.array.questionProg,R.array.choicesProg,R.array.correctProg);
+                getQuestion("10","Programming");
                 break;
             case "Aos":
-                FILE_NAME = "Aos.txt";
-                xmlQuestion("AOS",R.array.questionAos,R.array.choicesAos,R.array.correctAos);
+//                FILE_NAME = "Aos.txt";
+//                xmlQuestion("AOS",R.array.questionAos,R.array.choicesAos,R.array.correctAos);
+                getQuestion("2","AOS");
+
                 break;
             case "FRONT-END":
-                FILE_NAME = "front-end.txt";
-                xmlQuestion("Front End",R.array.questionsFront,R.array.choicesFront,R.array.correctFront);
+//                FILE_NAME = "front-end.txt";
+//                xmlQuestion("Front End",R.array.questionsFront,R.array.choicesFront,R.array.correctFront);
+                getQuestion("7","Front-End");
                 break;
             case "DATA ALGO":
-                FILE_NAME = "Data-Algo.txt";
-                xmlQuestion("Data Algorithm",R.array.questionDataAlgo,R.array.choicesDataAlgo,R.array.correctDataAlgo);
+//                FILE_NAME = "Data-Algo.txt";
+//                xmlQuestion("Data Algorithm",R.array.questionDataAlgo,R.array.choicesDataAlgo,R.array.correctDataAlgo);
+                getQuestion("4","Data Algo");
                 break;
             case "OS":
-                FILE_NAME = "operating system.txt";
-                xmlQuestion("Operating System",R.array.questionOs,R.array.choicesOs,R.array.correctOs);
+//                FILE_NAME = "operating system.txt";
+//                xmlQuestion("Operating System",R.array.questionOs,R.array.choicesOs,R.array.correctOs);
+                getQuestion("9","OS");
                 break;
             case "DM":
-                FILE_NAME= "Discrete.txt";
-                xmlQuestion("Discrete Math",R.array.questionDiscrete,R.array.choicesDiscrete,R.array.correctDiscrete);
+//                FILE_NAME= "Discrete.txt";
+//                xmlQuestion("Discrete Math",R.array.questionDiscrete,R.array.choicesDiscrete,R.array.correctDiscrete);
+                getQuestion("3", "Discrete Math");
                 break;
             case "ETHICS":
-                FILE_NAME= "Ethics.txt";
-                xmlQuestion("Ethics",R.array.questionEthics,R.array.choicesEthics,R.array.correctEthics);
+//                FILE_NAME= "Ethics.txt";
+//                xmlQuestion("Ethics",R.array.questionEthics,R.array.choicesEthics,R.array.correctEthics);
+                getQuestion("6","Ethics");
                 break;
             case "VB":
-                FILE_NAME= "Visual-basic.txt";
-                xmlQuestion("Visual Basic",R.array.questionVb,R.array.choicesVb,R.array.correctVb);
+//                FILE_NAME= "Visual-basic.txt";
+//                xmlQuestion("Visual Basic",R.array.questionVb,R.array.choicesVb,R.array.correctVb);
+                getQuestion("11","VB");
                 break;
             case "HCI":
-                FILE_NAME= "HCI.txt";
-                xmlQuestion("HCI",R.array.questionHci,R.array.choicesHci,R.array.correctHci);
+//                FILE_NAME= "HCI.txt";
+//                xmlQuestion("HCI",R.array.questionHci,R.array.choicesHci,R.array.correctHci);
+                getQuestion("8","HCI");
                 break;
             case "android":
-                FILE_NAME= "android.txt";
-                xmlQuestion("Android",R.array.questionAndroid,R.array.choicesAndroid,R.array.correctAndroid);
+//                FILE_NAME= "android.txt";
+//                xmlQuestion("Android",R.array.questionAndroid,R.array.choicesAndroid,R.array.correctAndroid);
+                getQuestion("1","Android");
                 break;
             case "comp":
-                FILE_NAME= "Computer Architecture.txt";
-                xmlQuestion("Comp Archi",R.array.questionCompArki,R.array.choicesCompArki,R.array.correctCompArki);
+                getQuestion("5","Comp Arki");
+//                FILE_NAME= "Computer Architecture.txt";
+//                xmlQuestion("Comp Archi",R.array.questionCompArki,R.array.choicesCompArki,R.array.correctCompArki);
                 break;
 
 
         }
+    }
+    public void getQuestion(String id, String name){
+
+
+        ArrayList<String> questions = new ArrayList<>();
+        ArrayList<String> choice1 = new ArrayList<>();
+        ArrayList<String> choice2 = new ArrayList<>();
+        ArrayList<String> choice3 = new ArrayList<>();
+        ArrayList<String> choice4 = new ArrayList<>();
+        ArrayList<String> correct = new ArrayList<>();
+//        Random r = new Random();
+
+
+        Cursor res = mydb.getQuizData(id);
+        Cursor quizName = mydb.getQuizName(name);
+        StringBuffer buffer = new StringBuffer();
+        if(quizName.getCount() == 0)
+            //showmesage
+            return;
+        while (quizName.moveToNext()){
+            buffer.append(quizName.getString(1));
+
+        }
+        mExamTitle.setText(buffer.toString());
+        if(res.getCount() == 0){
+//                            showMessage("Error","nothing found");
+            return;
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        while (res.moveToNext()){
+            questions.add(res.getString(1));
+            choice1.add(res.getString(2));
+            choice2.add(res.getString(3));
+            choice3.add(res.getString(4));
+            choice4.add(res.getString(5));
+            correct.add(res.getString(5));
+
+
+        }
+        mQuestionView.setText(questions.get(mQuestionNumber));
+        mButtonChoice1.setText(choice1.get(mQuestionNumber));
+        mButtonChoice2.setText(choice2.get(mQuestionNumber));
+        mButtonChoice3.setText(choice3.get(mQuestionNumber));
+        mButtonChoice4.setText(choice4.get(mQuestionNumber));
+        mAnswer = correct.get(mQuestionNumber);
+        qNumber.setText("" + (mQuestionNumber + 1));
+        mQuestionNumber = ((mQuestionNumber + 1) % 12) ;
+
+
+
+
+
     }
 
     public void xmlQuestion(String title,int question,int choice, int correctAnswer){
