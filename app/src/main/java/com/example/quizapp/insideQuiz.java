@@ -142,7 +142,7 @@ public class insideQuiz extends AppCompatActivity {
                 //slideUp(mButtonChoice3);
                 //slideUp(mButtonChoice4);
                 swipe(cardView);
-//                save(view,FILE_NAME);
+                save(view,FILE_NAME);
                 //slideLeft(cardView);
                 mButtonChoice1.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
                 mButtonChoice2.setBackgroundColor(Color.TRANSPARENT);//brings back the color of each button
@@ -225,63 +225,65 @@ public class insideQuiz extends AppCompatActivity {
     public void updateQuestion(){
         switch (quiz){
             case "programming"://pagka "programming" "quiz" yung pinindot
-//                FILE_NAME = "programming.txt";//set the name of the file
-//                xmlQuestion("Programming",R.array.questionProg,R.array.choicesProg,R.array.correctProg);
+                FILE_NAME = "programming.txt";//set the name of the file
+
                 getQuestion("10","Programming");
                 break;
             case "Aos":
-//                FILE_NAME = "Aos.txt";
-//                xmlQuestion("AOS",R.array.questionAos,R.array.choicesAos,R.array.correctAos);
+               FILE_NAME = "Aos.txt";
                 getQuestion("2","AOS");
 
                 break;
             case "FRONT-END":
-//                FILE_NAME = "front-end.txt";
-//                xmlQuestion("Front End",R.array.questionsFront,R.array.choicesFront,R.array.correctFront);
+               FILE_NAME = "front-end.txt";
+
                 getQuestion("7","Front-end");
                 break;
             case "DATA ALGO":
-//                FILE_NAME = "Data-Algo.txt";
-//                xmlQuestion("Data Algorithm",R.array.questionDataAlgo,R.array.choicesDataAlgo,R.array.correctDataAlgo);
+                FILE_NAME = "Data-Algo.txt";
+
                 getQuestion("4","Data Algo");
                 break;
             case "OS":
-//                FILE_NAME = "operating system.txt";
-//                xmlQuestion("Operating System",R.array.questionOs,R.array.choicesOs,R.array.correctOs);
+                FILE_NAME = "operating system.txt";
                 getQuestion("9","OS");
                 break;
             case "DM":
-//                FILE_NAME= "Discrete.txt";
-//                xmlQuestion("Discrete Math",R.array.questionDiscrete,R.array.choicesDiscrete,R.array.correctDiscrete);
+             FILE_NAME= "Discrete.txt";
+
                 getQuestion("3", "Discrete Math");
                 break;
             case "ETHICS":
-//                FILE_NAME= "Ethics.txt";
-//                xmlQuestion("Ethics",R.array.questionEthics,R.array.choicesEthics,R.array.correctEthics);
+                FILE_NAME= "Ethics.txt";
+
                 getQuestion("6","Ethics");
                 break;
             case "VB":
-//                FILE_NAME= "Visual-basic.txt";
-//                xmlQuestion("Visual Basic",R.array.questionVb,R.array.choicesVb,R.array.correctVb);
+                FILE_NAME= "Visual-basic.txt";
+
                 getQuestion("11","VB");
                 break;
             case "HCI":
-//                FILE_NAME= "HCI.txt";
-//                xmlQuestion("HCI",R.array.questionHci,R.array.choicesHci,R.array.correctHci);
+                FILE_NAME= "HCI.txt";
+
                 getQuestion("8","HCI");
                 break;
             case "android":
-//                FILE_NAME= "android.txt";
-//                xmlQuestion("Android",R.array.questionAndroid,R.array.choicesAndroid,R.array.correctAndroid);
+                FILE_NAME= "android.txt";
+
                 getQuestion("1","Android");
                 break;
             case "comp":
+                FILE_NAME = "Computer Architecture.txt";
                 getQuestion("5","Comp Arki");
-//                FILE_NAME= "Computer Architecture.txt";
-//                xmlQuestion("Comp Archi",R.array.questionCompArki,R.array.choicesCompArki,R.array.correctCompArki);
                 break;
             case "first":
+                FILE_NAME= "newly created quiz1.txt";
                 getQuestion("13");
+                break;
+            case "second":
+                FILE_NAME= "newly created quiz2.txt";
+                getQuestion("14");
                 break;
 
 
@@ -403,105 +405,6 @@ public class insideQuiz extends AppCompatActivity {
 
     }
 
-    public void xmlQuestion(String title,int question,int choice, int correctAnswer){
-        Resources res = getResources();
-        questions = res.getStringArray(question);
-        mQuestionView.setText(questions[mQuestionNumber]);
-        choices = res.getStringArray(choice);
-        String[] correct = res.getStringArray(correctAnswer);
-        String[] mainchoice = choices[mQuestionNumber].split(",");
-        mButtonChoice1.setText(mainchoice[0]);
-        mButtonChoice2.setText(mainchoice[1]);
-        mButtonChoice3.setText(mainchoice[2]);
-        mButtonChoice4.setText(mainchoice[3]);
-        mAnswer = correct[mQuestionNumber];
-        qNumber.setText("" + (mQuestionNumber + 1));
-        mQuestionNumber = ((mQuestionNumber + 1) % questions.length) ;
-        mExamTitle.setText(title);
-    }
-//    public void txtQuestions(String filename) {
-//
-//        try {
-//            FileInputStream fileInputStream = openFileInput(filename);
-//            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-//
-//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//            StringBuffer q = new StringBuffer();
-//            ArrayList<String> questions = new ArrayList<>();
-//            ArrayList<String> choice1 = new ArrayList<>();
-//            ArrayList<String> choice2 = new ArrayList<>();
-//            ArrayList<String> choice3 = new ArrayList<>();
-//            ArrayList<String> choice4 = new ArrayList<>();
-//            ArrayList<String> correct = new ArrayList<>();
-//            ArrayList<String> title = new ArrayList<>();
-//            String line = bufferedReader.readLine();
-//            while (line!= null) {
-//                if (line.contains("Title:")){
-//                    line = line.replace("Title:","");
-//                    title.add(line);
-//                }
-//                if(line.contains("Question:")){
-//                    line = line.replace("Question:","");
-//                    questions.add(line);
-//
-//                }
-//                if(line.contains("Choice1:")){
-//                    line = line.replace("Choice1:", "");
-//                    choice1.add(line);
-//
-//                }
-//                if(line.contains("Choice2:")){
-//                    line = line.replace("Choice2:", "");
-//                    choice2.add(line);
-//
-//                }
-//                if(line.contains("Choice3:")){
-//                    line = line.replace("Choice3:", "");
-//                    choice3.add(line);
-//
-//                }
-//                if(line.contains("Choice4:")){
-//                    line = line.replace("Choice4:", "");
-//                    choice4.add(line);
-//
-//                }if(line.contains("correct answer:")){
-//                    line = line.replace("correct answer:", "");
-//                    correct.add(line);
-//
-//                }
-//                line = bufferedReader.readLine();
-//
-//            }
-//            bufferedReader.close();
-//
-//            q.append(questions.get(mQuestionNumber));
-//            mQuestionView.setText(q);
-//            mButtonChoice1.setText(choice1.get(mQuestionNumber));
-//            mButtonChoice2.setText(choice2.get(mQuestionNumber));
-//            mButtonChoice3.setText(choice3.get(mQuestionNumber));
-//            mButtonChoice4.setText(choice4.get(mQuestionNumber));
-//            mAnswer = correct.get(mQuestionNumber);
-//            qNumber.setText("" + (mQuestionNumber + 1));
-//            mQuestionNumber = ((mQuestionNumber + 1) % questions.size()) ;
-//
-//            mExamTitle.setText(title.get(0));
-//        } catch(FileNotFoundException ex){
-//            ex.printStackTrace();
-//        } catch(IOException ex){
-//            ex.printStackTrace();
-//        }
-
-       /* private void slideRight (View v){
-            Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_right);
-            v.setAnimation(slide);
-
-        }
-
-        private void slideLeft (View v){
-            Animation slide = AnimationUtils.loadAnimation(insideQuiz.this, R.anim.slide_in_left);
-            v.setAnimation(slide);
-
-        } */
 
     }
 

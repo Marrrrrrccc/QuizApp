@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button openQuiz10 = (Button) findViewById(R.id.button10);
         Button openQuiz11 = (Button) findViewById(R.id.button11);
         Button openQuiz12 = (Button)findViewById(R.id.button12);
+        Button openQuiz13 = (Button)findViewById(R.id.button13);
         Button addNewFile = (Button) findViewById(R.id.addNewFile);
 
         openQuiz1.setOnClickListener(this);
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         openQuiz10.setOnClickListener(this);
         openQuiz11.setOnClickListener(this);
         openQuiz12.setOnClickListener(this);
+        openQuiz13.setOnClickListener(this);
         addNewFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +109,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button12:
                 openQuizAct(view,"first");
+                break;
+            case R.id.button13:
+                openQuizAct(view,"second");
                 break;
         }
     }
