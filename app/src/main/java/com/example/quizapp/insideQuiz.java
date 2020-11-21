@@ -324,6 +324,7 @@ public class insideQuiz extends AppCompatActivity {
 
 
         }
+
         mQuestionView.setText(questions.get(mQuestionNumber));
         mButtonChoice1.setText(choice1.get(mQuestionNumber));
         mButtonChoice2.setText(choice2.get(mQuestionNumber));
