@@ -53,7 +53,7 @@ public class AddInfo extends AppCompatActivity {
         Intent intent = getIntent();
 
         addedTitle = intent.getStringExtra("title");
-        Toast.makeText(AddInfo.this, addedTitle, Toast.LENGTH_LONG).show();
+        Toast.makeText(AddInfo.this, "Quiz Inserted", Toast.LENGTH_LONG).show();
 //        final Cursor quizName = main.questionsDB.getQuizNameID(addedTitle);
 
 
@@ -92,7 +92,9 @@ public class AddInfo extends AppCompatActivity {
                 addChoice3.getText().clear();
                 correctChoice.getText().clear();
                 if(questionNum == 12) {
+                    Toast.makeText(AddInfo.this, "Successfully Inserted the Questions", Toast.LENGTH_LONG).show();
                     toHomescreen();
+
                 }
             }
         });

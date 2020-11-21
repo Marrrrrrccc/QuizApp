@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class CreateQuiz extends AppCompatActivity {
 
     MainActivity main = new MainActivity();
-    EditText quizName, quizTitle;
+    public EditText quizName, quizTitle;
     Button toQuiz;
 
     @Override
@@ -52,7 +52,7 @@ public class CreateQuiz extends AppCompatActivity {
 
         //adds hint to the two edit texts
         quizName.setHint("Quiz Name");
-        quizTitle.setHint("Title");
+        quizTitle.setHint("Quiz Number");
         AddQuiz();
     }
 
@@ -60,13 +60,14 @@ public class CreateQuiz extends AppCompatActivity {
         toQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String qName = quizName.getText().toString();
+                String qName = quizTitle.getText().toString();
+                String qTitle = quizName.getText().toString();
                 if (TextUtils.isEmpty(qName)) {
                     Toast.makeText(CreateQuiz.this, "Please enter the needed information.", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    toQuestionnaire(view, qName);
-                    main.questionsDB.insertQuiz(qName);
+                    toQuestionnaire(view, quizTitle.getText().toString());
+                    main.questionsDB.insertQuiz(qTitle);
 
 //                    boolean isInserted = main.questionsDB.insertQuiz(qName);
 //                    if (isInserted == true)

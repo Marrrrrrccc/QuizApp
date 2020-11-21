@@ -280,9 +280,64 @@ public class insideQuiz extends AppCompatActivity {
 //                FILE_NAME= "Computer Architecture.txt";
 //                xmlQuestion("Comp Archi",R.array.questionCompArki,R.array.choicesCompArki,R.array.correctCompArki);
                 break;
+            case "first":
+                getQuestion("13");
+                break;
 
 
         }
+    }
+    public void getQuestion(String id){
+
+        Integer[] intArray = { 2, 3, 4, 5 };
+
+        List<Integer> intList = Arrays.asList(intArray);
+
+        Collections.shuffle(intList);
+
+        intList.toArray(intArray);
+
+
+
+
+        ArrayList<String> questions = new ArrayList<>();
+        ArrayList<String> choice1 = new ArrayList<>();
+        ArrayList<String> choice2 = new ArrayList<>();
+        ArrayList<String> choice3 = new ArrayList<>();
+        ArrayList<String> choice4 = new ArrayList<>();
+        ArrayList<String> correct = new ArrayList<>();
+
+
+        Cursor res = mydb.getQuizData(id);
+        if(res.getCount() == 0){
+//                            showMessage("Error","nothing found");
+            return;
+        }
+//        StringBuffer stringBuffer = new StringBuffer();
+        while (res.moveToNext()){
+            questions.add(res.getString(1));
+            choice1.add(res.getString(intArray[0]));
+            choice2.add(res.getString(intArray[1]));
+            choice3.add(res.getString(intArray[2]));
+            choice4.add(res.getString(intArray[3]));
+            correct.add(res.getString(5));
+
+
+        }
+        mQuestionView.setText(questions.get(mQuestionNumber));
+        mButtonChoice1.setText(choice1.get(mQuestionNumber));
+        mButtonChoice2.setText(choice2.get(mQuestionNumber));
+        mButtonChoice3.setText(choice3.get(mQuestionNumber));
+        mButtonChoice4.setText(choice4.get(mQuestionNumber));
+        mAnswer = correct.get(mQuestionNumber);
+        qNumber.setText("" + (mQuestionNumber + 1));
+        mQuestionNumber = ((mQuestionNumber + 1) % 12) ;
+
+
+
+
+
+
     }
     public void getQuestion(String id, String name){
 

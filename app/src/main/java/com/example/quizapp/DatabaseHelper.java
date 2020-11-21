@@ -100,9 +100,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from "+ TABLE_NAME_1 + " WHERE Quiz_Name = ?",new String[] {QuizName});
         return res;
     }
-    public Cursor getQuizNameID(String QuizName){//reading the data to the database
+    public Cursor getQuizNameID(String id){//reading the data to the database
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+ TABLE_NAME_1 + " WHERE Quiz_Name = ?",new String[]{QuizName});
+        Cursor res = db.rawQuery("select Quiz_Name from "+ TABLE_NAME_1 + " WHERE Quiz_Id = ?",new String[]{id});
         res.getString(0);
         return res;
     }
