@@ -10,10 +10,9 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="380dp"
-        android:layout_height="600dp"
+        android:layout_width="379dp"
+        android:layout_height="584dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:scrollbarSize="2dp"
         android:scrollbarThumbVertical="@android:color/holo_blue_dark"
@@ -171,6 +170,7 @@
                 android:textAlignment="viewStart"
                 android:textSize="22sp"
                 android:typeface="normal" />
+
             <Button
                 android:id="@+id/button12"
                 android:layout_width="340dp"
@@ -183,6 +183,7 @@
                 android:textAlignment="viewStart"
                 android:textSize="22sp"
                 android:typeface="normal" />
+
             <Button
                 android:id="@+id/button13"
                 android:layout_width="340dp"
@@ -204,27 +205,16 @@
         android:id="@+id/addNewFile"
         android:layout_width="21dp"
         android:layout_height="21dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginStart="333dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/add"
         android:onClick="toAddFile"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/searchView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/searchbg"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
-        app:layout_constraintEnd_toStartOf="@+id/addNewFile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.608" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -89,10 +89,10 @@ public class insideQuiz extends AppCompatActivity {
             public void onClick(View view) {
                 //logic starts here
                 if (mButtonChoice1.getText().equals(mAnswer)) {
-                    mButtonChoice1.setBackgroundColor(Color.GREEN);
+                    mButtonChoice1.setBackgroundColor(Color.rgb(50, 184, 85));
 //                    mScore++;
                 } else {
-                    mButtonChoice1.setBackgroundColor(Color.RED);
+                    mButtonChoice1.setBackgroundColor(Color.rgb(209, 44, 44));
                 }
 
             }
@@ -102,10 +102,10 @@ public class insideQuiz extends AppCompatActivity {
             public void onClick(View view) {
                 //logic starts here
                 if (mButtonChoice2.getText().equals(mAnswer)) {
-                    mButtonChoice2.setBackgroundColor(Color.GREEN);
+                    mButtonChoice2.setBackgroundColor(Color.rgb(50, 184, 85));
 //                    mScore++;
                 } else {
-                    mButtonChoice2.setBackgroundColor(Color.RED);
+                    mButtonChoice2.setBackgroundColor(Color.rgb(209, 44, 44));
                 }
             }
         });
@@ -114,10 +114,10 @@ public class insideQuiz extends AppCompatActivity {
             public void onClick(View view) {
                 //logic starts here
                 if (mButtonChoice3.getText().equals(mAnswer)) {
-                    mButtonChoice3.setBackgroundColor(Color.GREEN);
+                    mButtonChoice3.setBackgroundColor(Color.rgb(50, 184, 85));
 //                    mScore++;
                 } else {
-                    mButtonChoice3.setBackgroundColor(Color.RED);
+                    mButtonChoice3.setBackgroundColor(Color.rgb(209, 44, 44));
                 }
             }
         });
@@ -126,10 +126,10 @@ public class insideQuiz extends AppCompatActivity {
             public void onClick(View view) {
                 //logic starts here
                 if (mButtonChoice4.getText().equals(mAnswer)) {
-                    mButtonChoice4.setBackgroundColor(Color.GREEN);
+                    mButtonChoice4.setBackgroundColor(Color.rgb(50, 184, 85));
 //                    mScore++;
                 } else {
-                    mButtonChoice4.setBackgroundColor(Color.RED);
+                    mButtonChoice4.setBackgroundColor(Color.rgb(209, 44, 44));
                 }
             }
         });
