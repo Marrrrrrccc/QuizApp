@@ -99,7 +99,7 @@ public class AddInfo extends AppCompatActivity {
             }
         });
 
-        quizTitle.setText(addedTitle);
+//        quizTitle.setText(addedTitle);
 
         addQuestion.setHint("Add Question");
         addChoice1.setHint("Add Choice");
